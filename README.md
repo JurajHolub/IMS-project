@@ -1,64 +1,49 @@
 # IMS project - Impact of construction on the environment
 
 ## About
-Matej's legs smell like shit. Feet ty angličan.
-Juraj is gay.
+Matej's ~~legs~~ smell like shit. Feet ty angličan.
+
+### Juraj is gay.
 
 #### L.A.G song -  Horkýže Slíže
-Poď sem, nech sa stebou zblížim.
-Poď sem, ja ti neubližim.
-Poď sem, ja ťa nezbijem.
-I'm sorry, I'm Lesbian.
-Poď sem, som tvoj dvorny basnik.
-Mam energiu za dvanastich
-a k tomu lubrikačný gel.
-I'm sorry, I'm really Gay.
-Lesbian's and Gay's song.
-Lesbian's and Gay's sooooong.
-Lesbian's and Gay's song.
-Lesbian's and Gay's song.
-Poď sem, pustim Iron Maiden.
-Poď sem, nalejem ti za jeden.
-Poď sem, s barskym nepijem.
-I'm sorry, I'm Lesbian.
-Poď sem, tu si ku mne hačaj.
-Ked´som ťa pozval na rum a čaj.
-Stoj! Nechod nikam! Čo je? Hej!
-I'm sorry, I'm really Gay.
-Refren:
-Lesbian's and Gay's song
-Lesbian's and Gay's sooooong
-Lesbian's and Gay's song
-Lesbian's and Gay's sooooong
-Lesbian's and Gay's song
-Lesbian's and Gay's sooooong
-Lesbian's and Gay's song
-Lesbian's and Gay's song
-Poď sem, spolu mame v plane.
-že ťa okupem vo fontane.
-tak otvor branu lebo ju rozbijem!!
-I'm sorry baby, I'm Lesbian.
-Viem, neopakuj mi to stale
-ja som vyrastol na Death Metale,
-ja takymto veciam rozumiem.
-I'm sorry ...ale ved ja viem.
-Refren:
-Lesbian's and Gay song
-Lesbian's and Gay sooooong
-Lesbian's and Gay song
-Lesbian's and Gay sooooong
-Lesbian's and Gay song
-Lesbian's and Gay sooooong
-Lesbian's and Gay song
-Lesbian's and Gay song
-Lesbian's and Gay song
-I'm sorry
-Lesbian's and Gay sooooong
-Lesbian's and Gay song
-I'm sorry
-Lesbian's and Gay sooooong
-Lesbian's and Gay song
-I'm sorry. 
+Poď sem, nech sa stebou zblížim.\
+Poď sem, ja ti neubližim.\
+Poď sem, ja ťa nezbijem.\
+I'm sorry, I'm Lesbian.\
+Poď sem, som tvoj dvorny basnik.\
+Mam energiu za dvanastich\
+a k tomu lubrikačný gel.\
+I'm sorry, I'm really Gay.\
+Lesbian's and Gay's song.\
+Lesbian's and Gay's sooooong.\
+Lesbian's and Gay's song.\
+Lesbian's and Gay's song.\
+Poď sem, pustim Iron Maiden.\
+Poď sem, nalejem ti za jeden.\
+Poď sem, s barskym nepijem.\
+I'm sorry, I'm Lesbian.\
+Poď sem, tu si ku mne hačaj.\
+Ked´som ťa pozval na rum a čaj.\
+Stoj! Nechod nikam! Čo je? Hej!\
+I'm sorry, I'm really Gay.\
+Refren:\
+Lesbian's and Gay's song\
+Lesbian's and Gay's sooooong\
+Lesbian's and Gay's song\
+Lesbian's and Gay's sooooong\
+Lesbian's and Gay's song\
+Lesbian's and Gay's sooooong\
+Lesbian's and Gay's song\
+Lesbian's and Gay's song\
+Poď sem, spolu mame v plane.\
+že ťa okupem vo fontane.\
+tak otvor branu lebo ju rozbijem!!\
+I'm sorry baby, I'm Lesbian.\
+Viem, neopakuj mi to stale\
+ja som vyrastol na Death Metale,\
+ja takymto veciam rozumiem.\
+I'm sorry ...ale ved ja viem.\
+Refren...
 
 ## Dependencies
 - C++14
