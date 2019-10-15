@@ -1,0 +1,67 @@
+% IMS
+% Projekt
+% Juraj Holub
+% xholub40@stud.fit.vutbr.cz
+
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage{times}
+\usepackage[left=1.5cm,top=2.5cm,text={18cm,25cm}]{geometry}
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{dsfont}
+\setlength{\parindent}{1em}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{cite}
+
+%\date{}
+
+\lstset{
+	basicstyle=\small\ttfamily,
+}
+
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\Huge
+		\textsc{Fakulta informačních technologií \\
+			Vysoké učení technické v~Brně} \\
+		\vspace{\stretch{0.382}}
+		{\LARGE
+			IMS - Modelování a simulace \\ 
+			\medskip \Large{Vliv stavebnictví na životní prostředí}
+			\vspace{\stretch{0.618}}}
+		\setlength{\parindent}{0.3em}\\
+		{\Large 2019} \\
+		{\Large Juraj Holub (xholub40)}\\
+		{\Large Matej Parobek (xparob00)}
+	\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Úvod}
+BLabla
+
+\subsection{subsection}
+blabla\cite{RFC3912}
+
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=.5 \paperwidth]{example.pdf}
+	\caption{Example.}
+	\label{obr1}
+\end{figure} \label{obr_tcp_syn}
+
+\newpage
+\bibliographystyle{czechiso}
+\bibliography{bib}
+
+\end{document}
