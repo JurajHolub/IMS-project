@@ -3,7 +3,7 @@
 # @date 2019
 
 CC = g++
-CFLAGS = -I -g
+CFLAGS = -I -g -O2 -lsimlib -lm
 OBJ = main.o 
 EXECUTABLE = ims-project
 
