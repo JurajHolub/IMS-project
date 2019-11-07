@@ -60,6 +60,7 @@ private:
 	};
 
 	Months currentMonth;
+	unsigned year;
 
 public:
 

@@ -12,17 +12,29 @@
 #include <simlib.h>
 #include "monthly_energy_flow.h"
 #include "statistics.h"
+#include "argument_parser.h"
 
 #define MONTH_ENERGY_CONSUMPTION 3090
 
 int main(int argc, char **argv)
 {
+	ArgumentParser argumentParser;
+	if (!argumentParser.parseArgs(argc, argv))
+	{
+		argumentParser.printHelp();
+		return 1;
+	}
+
 	Facility *monthCycle = new Facility("New month cycle facility");
 	YearCycle *yearCycle = new YearCycle();
 	Statistics *statistics = new Statistics(yearCycle);
-	Store *monthlyEnergyConsumption = new Store("Monthly usage of energy for water heating", MONTH_ENERGY_CONSUMPTION);
+	Store *monthlyEnergyConsumption =new Store(
+		"Monthly usage of energy for water heating",
+		argumentParser.getConsumptionOfkWhPerYear()*10
+	);
 
-	Init(0, 364);
+	unsigned numberOfDays = argumentParser.getNumberOfYears() * 365 - 1;
+	Init(0, numberOfDays);
 	MonthlyEnergyFlow *monthlyEnergyFlow = new MonthlyEnergyFlow(yearCycle, monthCycle, monthlyEnergyConsumption, statistics);
 	monthlyEnergyFlow->Activate();
 

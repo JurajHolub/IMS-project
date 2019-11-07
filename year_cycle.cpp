@@ -6,9 +6,11 @@
  */
 
 #include "year_cycle.h"
+#include <iostream>
 
 YearCycle::YearCycle()
 {
+	year = 0;
 	currentMonth = Decembre;
 }
 
@@ -20,6 +22,11 @@ YearCycle::Months YearCycle::getCurrentMonth()
 YearCycle::Months YearCycle::setNewMonth()
 {
 	currentMonth = Months((currentMonth + 1) % (Decembre + 1));
+	if (currentMonth == January)
+	{
+		year++;
+		std::cout << "Simulate " << year << ". year...\n";
+	}
 }
 
 unsigned YearCycle::getNumberOfDaysForCurrentMonth()
