@@ -4,7 +4,11 @@
 
 CC = g++
 CFLAGS = -I -g -O2 -lsimlib -lm
-OBJ = main.o 
+OBJ = main.o \
+	  monthly_energy_flow.o \
+	  solar_energy_source.o \
+	  statistics.o \
+	  year_cycle.o
 EXECUTABLE = ims-project
 
 all: $(EXECUTABLE)
