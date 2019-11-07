@@ -13,16 +13,17 @@
 class Statistics {
 private:
 	YearCycle * yearCycle;
+	unsigned monthConsumption;
 	unsigned consumedSolarEnergy;
 	unsigned consumedFosilEnergy;
 	unsigned energyWaste;
 	unsigned monthlySpent;
 public:
 
-	Statistics(YearCycle *yearCycle);
+	Statistics(YearCycle *yearCycle, unsigned yearConsumption);
 
 	void consumeSolarEnergy();
-	void consumeFosilEnergy();
+	unsigned calculateFosilEnergy();
 	void consumeEnergy();
 	void wasteSolarEnergy();
 	bool monthlyEnergyNeedFulfilled();

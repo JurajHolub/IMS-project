@@ -30,33 +30,33 @@ private:
 	};
 
 	std::map<Months, unsigned > numberOfMonthDay {
-			{January, 31},
-			{February, 28},
-			{March,  31},
-			{April,  30},
-			{May,    31},
-			{June,   30},
-			{July,   31},
-			{August, 31},
-			{Septembre, 30},
-			{Octobre, 31},
-			{Novembre, 30},
-			{Decembre, 31}
+			{January, 	31},
+			{February, 	28},
+			{March,  	31},
+			{April,  	30},
+			{May,    	31},
+			{June,   	30},
+			{July,   	31},
+			{August, 	31},
+			{Septembre, 	30},
+			{Octobre, 	31},
+			{Novembre, 	30},
+			{Decembre, 	31}
 	};
 
 	std::map<Months, unsigned > monthlySolarProduction {
-			{January, 372},
-			{February, 1124},
-			{March,  2699},
-			{April,  3707},
-			{May,    6178},
-			{June,   7176},
-			{July,   7689},
-			{August, 6012},
-			{Septembre, 4181},
-			{Octobre, 1914},
-			{Novembre, 583},
-			{Decembre, 166}
+			{January, 	37},
+			{February, 	112},
+			{March,  	269},
+			{April,  	370},
+			{May,    	617},
+			{June,   	717},
+			{July,   	768},
+			{August, 	601},
+			{Septembre, 	418},
+			{Octobre, 	191},
+			{Novembre, 	58},
+			{Decembre, 	16}
 	};
 
 	Months currentMonth;
@@ -70,6 +70,7 @@ public:
 	Months setNewMonth();
 	unsigned getNumberOfDaysForCurrentMonth();
 	unsigned getCurrentSolarEnergyProduction();
+	unsigned getNumberOfYears();
 };
 
 

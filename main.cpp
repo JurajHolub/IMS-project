@@ -27,10 +27,10 @@ int main(int argc, char **argv)
 
 	Facility *monthCycle = new Facility("New month cycle facility");
 	YearCycle *yearCycle = new YearCycle();
-	Statistics *statistics = new Statistics(yearCycle);
+	Statistics *statistics = new Statistics(yearCycle, argumentParser.getConsumptionOfkWhPerMonth());
 	Store *monthlyEnergyConsumption =new Store(
 		"Monthly usage of energy for water heating",
-		argumentParser.getConsumptionOfkWhPerYear()*10
+		argumentParser.getConsumptionOfkWhPerMonth()
 	);
 
 	unsigned numberOfDays = argumentParser.getNumberOfYears() * 365 - 1;
@@ -39,7 +39,6 @@ int main(int argc, char **argv)
 	monthlyEnergyFlow->Activate();
 
 	Run();
-
 	statistics->Output();
 
 	delete yearCycle;

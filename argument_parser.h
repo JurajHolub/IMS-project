@@ -9,12 +9,12 @@
 
 #define NUMBER_OF_YEARS 1
 #define HELP_MSG 2
-#define CONSUMPTION_OF_KWH_PER_YEAR 3
+#define CONSUMPTION_OF_KWH_PER_MONTH 3
 
 class ArgumentParser {
 private:
 	unsigned numberOfYears;
-	unsigned consumptionOfkWhPerYear;
+	unsigned consumptionOfkWhPerMonth;
 
 public:
 
@@ -22,7 +22,7 @@ public:
 	bool parseNumber(std::string input, unsigned &output);
 	void printHelp();
 	unsigned getNumberOfYears();
-	unsigned getConsumptionOfkWhPerYear();
+	unsigned getConsumptionOfkWhPerMonth();
 };
 
 

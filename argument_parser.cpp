@@ -12,8 +12,8 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 	int opt;
 	const struct option long_options[] = {
 			{"y" , required_argument, 0, NUMBER_OF_YEARS},
-			{"e" , required_argument, 0, CONSUMPTION_OF_KWH_PER_YEAR},
-			{"h" , no_argument, 0, HELP_MSG}
+			{"e" , required_argument, 0, CONSUMPTION_OF_KWH_PER_MONTH},
+			{"h" , no_argument, 0,       HELP_MSG}
 	};
 	std::list<std::string> argsLeft;
 	for (int i = 1; i < argc; i++)
@@ -32,11 +32,12 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 				argsLeft.remove("-y");
 				argsLeft.remove(optarg);
 				break;
-			case CONSUMPTION_OF_KWH_PER_YEAR:
-				kWhDefined = parseNumber(optarg, consumptionOfkWhPerYear);
+			case CONSUMPTION_OF_KWH_PER_MONTH:
+				kWhDefined = parseNumber(optarg, consumptionOfkWhPerMonth);
 				argsLeft.remove("-e");
 				argsLeft.remove(optarg);
 				break;
+			default:
 			case HELP_MSG:
 				return false; //just print help message
 		}
@@ -73,12 +74,17 @@ unsigned ArgumentParser::getNumberOfYears()
 	return numberOfYears;
 }
 
-unsigned ArgumentParser::getConsumptionOfkWhPerYear()
+unsigned ArgumentParser::getConsumptionOfkWhPerMonth()
 {
-	return consumptionOfkWhPerYear;
+	return consumptionOfkWhPerMonth;
 }
 
 void ArgumentParser::printHelp()
 {
-	std::cout << "TODO: print help!" << std::endl;
+	std::cout << "usage: ims-project <arguments>" << std::endl
+	          << "Compulsory arguments:" << std::endl
+	          << "  -y <integer>      = Number of simulation time in years." << std::endl
+	          << "  -e <integer>      = Energy [kWh] consumed by water heating per month." << std::endl
+	          << "Optional arguments:" << std::endl
+	          << "  -h                = Print this help message." << std::endl;
 }

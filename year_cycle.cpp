@@ -25,7 +25,7 @@ YearCycle::Months YearCycle::setNewMonth()
 	if (currentMonth == January)
 	{
 		year++;
-		std::cout << "Simulate " << year << ". year...\n";
+		//std::cout << "Simulate " << year << ". year...\n";
 	}
 }
 
@@ -37,4 +37,9 @@ unsigned YearCycle::getNumberOfDaysForCurrentMonth()
 unsigned YearCycle::getCurrentSolarEnergyProduction()
 {
 	return monthlySolarProduction[currentMonth];
+}
+
+unsigned YearCycle::getNumberOfYears()
+{
+	return year;
 }

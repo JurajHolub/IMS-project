@@ -8,7 +8,8 @@ OBJ = main.o \
 	  monthly_energy_flow.o \
 	  solar_energy_source.o \
 	  statistics.o \
-	  year_cycle.o
+	  year_cycle.o \
+	  argument_parser.o
 EXECUTABLE = ims-project
 
 all: $(EXECUTABLE)
