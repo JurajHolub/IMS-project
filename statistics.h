@@ -18,6 +18,12 @@ private:
 	unsigned consumedFosilEnergy;
 	unsigned energyWaste;
 	unsigned monthlySpent;
+
+	const double COST_OF_BLACK_COAL_ENERGY_PER_KWH = 1.29;
+	const double COST_OF_SOLAR_PANEL_SET = 71769;
+	const double GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_COAL_ENERGY = 1.041e-3;
+	const double GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_SOLAR_ENERGY = 2.4e-5;
+
 public:
 
 	Statistics(YearCycle *yearCycle, unsigned yearConsumption);
