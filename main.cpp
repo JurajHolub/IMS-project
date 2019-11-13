@@ -25,6 +25,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
+	RandomSeed(time(NULL));
 	Facility *monthCycle = new Facility("New month cycle facility");
 	YearCycle *yearCycle = new YearCycle();
 	Statistics *statistics = new Statistics(yearCycle, argumentParser.getConsumptionOfkWhPerMonth());

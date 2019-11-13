@@ -7,6 +7,7 @@
 
 #include "monthly_energy_flow.h"
 #include "solar_energy_source.h"
+#include <iostream>
 
 MonthlyEnergyFlow::MonthlyEnergyFlow(
 	YearCycle *yearCycle,
@@ -34,7 +35,7 @@ void MonthlyEnergyFlow::Behavior()
 		for (int i = 0; i < yearCycle->getCurrentSolarEnergyProduction(); ++i)
 		{
 			auto source = new SolarEnergySource(yearCycle, this, monthlyEnergyConsumption, statistics);
-			double t = Time + Uniform(0, yearCycle->getNumberOfDaysForCurrentMonth());
+			double t = Time + Uniform(0, yearCycle->getNumberOfDaysForCurrentMonth() - 1);
 			source->Activate(t);
 		}
 		Wait(yearCycle->getNumberOfDaysForCurrentMonth());
