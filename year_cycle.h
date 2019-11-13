@@ -61,10 +61,12 @@ private:
 
 	Months currentMonth;
 	unsigned year;
+	unsigned numberOfProcessesPerDay;
+
 
 public:
 
-	YearCycle();
+	YearCycle(unsigned numberOfProcessesPerDay);
 
 	Months getCurrentMonth();
 	Months setNewMonth();

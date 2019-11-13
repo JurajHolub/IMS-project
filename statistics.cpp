@@ -8,19 +8,21 @@
 #include "statistics.h"
 #include <iostream>
 
-Statistics::Statistics(YearCycle *yearCycle, unsigned monthConsumption)
+Statistics::Statistics(YearCycle *yearCycle, unsigned dailyConsumption, unsigned numberOfprocessesPerDay)
 {
 	this->yearCycle = yearCycle;
-	this->monthConsumption = monthConsumption;
+	this->dailyConsumption = dailyConsumption;
+	this->numberOfProcessesPerDay = numberOfprocessesPerDay;
 	consumedSolarEnergy = 0;
 	consumedFosilEnergy = 0;
+	consumedEnergy = 0;
 	energyWaste = 0;
-	monthlySpent = 0;
 }
 
 unsigned Statistics::calculateFosilEnergy()
 {
-	unsigned yearConsumption = monthConsumption * 12;
+	unsigned numberOfDaysInOneYear = 365;
+	unsigned yearConsumption = dailyConsumption * numberOfDaysInOneYear / numberOfProcessesPerDay;
 	return yearConsumption * yearCycle->getNumberOfYears() - consumedSolarEnergy;
 }
 
@@ -29,37 +31,36 @@ void Statistics::consumeSolarEnergy()
 	consumedSolarEnergy++;
 }
 
-void Statistics::consumeEnergy()
-{
-	monthlySpent++;
-}
-
-bool Statistics::monthlyEnergyNeedFulfilled()
-{
-	if (monthlySpent == yearCycle->getCurrentSolarEnergyProduction())
-	{
-		monthlySpent = 0;
-		return true;
-	}
-
-	return false;
-}
 
 void Statistics::wasteSolarEnergy()
 {
 	energyWaste++;
 }
 
+void Statistics::divideStatisticsByNumberOfProcesses()
+{
+	consumedSolarEnergy /= numberOfProcessesPerDay;
+	energyWaste /= numberOfProcessesPerDay;
+}
+
+void Statistics::consumeEnergy()
+{
+}
+
 void Statistics::Output()
 {
-	unsigned consumedEnergyTotal = consumedSolarEnergy + calculateFosilEnergy();
-	double priceWithSystem = COST_OF_SOLAR_PANEL_SET + calculateFosilEnergy() * COST_OF_BLACK_COAL_ENERGY_PER_KWH;
+	divideStatisticsByNumberOfProcesses();
+
+	unsigned fosilEnergy = calculateFosilEnergy();
+	unsigned consumedEnergyTotal = (consumedSolarEnergy + fosilEnergy);
+	double priceWithSystem = COST_OF_SOLAR_PANEL_SET + fosilEnergy * COST_OF_BLACK_COAL_ENERGY_PER_KWH;
 	double priceWithoutSystem = consumedEnergyTotal * COST_OF_BLACK_COAL_ENERGY_PER_KWH;
 	double emisionsWithSystem = (consumedSolarEnergy + energyWaste) * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_SOLAR_ENERGY;
 	double emisionsWithoutSystem = consumedEnergyTotal * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_COAL_ENERGY;
 
+
 	printf("Consumed solar energy:             %10d [kWh]\n", consumedSolarEnergy);
-	printf("Consumed fosil energy:             %10d [kWh]\n", calculateFosilEnergy());
+	printf("Consumed fosil energy:             %10d [kWh]\n", fosilEnergy);
 	printf("Wasted solar energy:               %10d [kWh]\n", energyWaste);
 	printf("Consumed total:                    %10d [kWh]\n", consumedEnergyTotal);
 	printf("Price without solar system:        %10.2f [CZK]\n", priceWithoutSystem);

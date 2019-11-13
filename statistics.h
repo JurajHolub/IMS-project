@@ -13,11 +13,12 @@
 class Statistics {
 private:
 	YearCycle * yearCycle;
-	unsigned monthConsumption;
+	unsigned dailyConsumption;
 	unsigned consumedSolarEnergy;
 	unsigned consumedFosilEnergy;
+	unsigned consumedEnergy;
 	unsigned energyWaste;
-	unsigned monthlySpent;
+	unsigned numberOfProcessesPerDay;
 
 	const double COST_OF_BLACK_COAL_ENERGY_PER_KWH = 1.29;
 	const double COST_OF_SOLAR_PANEL_SET = 71769;
@@ -26,13 +27,13 @@ private:
 
 public:
 
-	Statistics(YearCycle *yearCycle, unsigned yearConsumption);
+	Statistics(YearCycle *yearCycle, unsigned dailyConsumption, unsigned numberOfprocessesPerDay);
 
 	void consumeSolarEnergy();
 	unsigned calculateFosilEnergy();
 	void consumeEnergy();
 	void wasteSolarEnergy();
-	bool monthlyEnergyNeedFulfilled();
+	void divideStatisticsByNumberOfProcesses();
 
 	void Output();
 };

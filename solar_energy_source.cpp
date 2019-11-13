@@ -11,13 +11,13 @@ SolarEnergySource::SolarEnergySource
 (
 	YearCycle *yearCycle,
 	MonthlyEnergyFlow *monthlyEnergyFlow,
-	Store *monthlyEnergyConsumption,
+	Store *dailyEnergyConsumption,
 	Statistics *statistics
 )
 {
 	this->yearCycle = yearCycle;
 	this->monthlyEnergyFlow = monthlyEnergyFlow;
-	this->monthlyEnergyConsumption = monthlyEnergyConsumption;
+	this->dailyEnergyConsumption = dailyEnergyConsumption;
 	this->statistics = statistics;
 }
 
@@ -25,21 +25,15 @@ void SolarEnergySource::Behavior()
 {
 	statistics->consumeEnergy();
 
-	if (monthlyEnergyConsumption->Full())
+	if (dailyEnergyConsumption->Full())
 	{
 		statistics->wasteSolarEnergy();
 	}
 	else
 	{
-		Enter(*monthlyEnergyConsumption, 1);
+		Enter(*dailyEnergyConsumption, 1);
 		statistics->consumeSolarEnergy();
-	}
-
-	if (statistics->monthlyEnergyNeedFulfilled())
-	{
-		while (!monthlyEnergyConsumption->Empty())
-			Leave(*monthlyEnergyConsumption, 1);
-
-		monthlyEnergyFlow->setEndOfMonthCycle();
+		Wait(1); // wait one day to release daily consumption
+		Leave(*dailyEnergyConsumption, 1);
 	}
 }

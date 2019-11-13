@@ -16,15 +16,13 @@
 class MonthlyEnergyFlow : public Process {
 private:
 	YearCycle *yearCycle;
-	Facility *monthCycle;
-	Store *monthlyEnergyConsumption;
+	Store *dailyEnergyConsumption;
 	Statistics *statistics;
 public:
 
 	MonthlyEnergyFlow(
 		YearCycle *yearCycle,
-		Facility *monthCycle,
-		Store *monthlyEnergyConsumption,
+		Store *dailyEnergyConsumption,
 		Statistics *statistics
 	);
 

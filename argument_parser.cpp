@@ -12,7 +12,8 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 	int opt;
 	const struct option long_options[] = {
 			{"y" , required_argument, 0, NUMBER_OF_YEARS},
-			{"e" , required_argument, 0, CONSUMPTION_OF_KWH_PER_MONTH},
+			{"e" , required_argument, 0, CONSUMPTION_OF_KWH_PER_DAY},
+			{"p" , required_argument, 0, NUMBER_OF_PROCESSES_PER_KWH},
 			{"h" , no_argument, 0,       HELP_MSG}
 	};
 	std::list<std::string> argsLeft;
@@ -22,6 +23,7 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 	}
 	bool yearsDefined = false;
 	bool kWhDefined = false;
+	bool processesDefined = false;
 
 	while ((opt = getopt_long_only(argc, argv, "", long_options, nullptr)) != -1)
 	{
@@ -32,9 +34,14 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 				argsLeft.remove("-y");
 				argsLeft.remove(optarg);
 				break;
-			case CONSUMPTION_OF_KWH_PER_MONTH:
-				kWhDefined = parseNumber(optarg, consumptionOfkWhPerMonth);
+			case CONSUMPTION_OF_KWH_PER_DAY:
+				kWhDefined = parseNumber(optarg, consumptionOfkWhPerYear);
 				argsLeft.remove("-e");
+				argsLeft.remove(optarg);
+				break;
+			case NUMBER_OF_PROCESSES_PER_KWH:
+				processesDefined = parseNumber(optarg, numberOfProcessesPerkWh);
+				argsLeft.remove("-p");
 				argsLeft.remove(optarg);
 				break;
 			default:
@@ -43,7 +50,7 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 		}
 	}
 
-	return argsLeft.empty() && yearsDefined && kWhDefined;
+	return argsLeft.empty() && yearsDefined && kWhDefined && processesDefined;
 }
 
 bool ArgumentParser::parseNumber(std::string input, unsigned &output)
@@ -74,9 +81,15 @@ unsigned ArgumentParser::getNumberOfYears()
 	return numberOfYears;
 }
 
-unsigned ArgumentParser::getConsumptionOfkWhPerMonth()
+unsigned ArgumentParser::getConsumptionOfkWhPerDay()
 {
-	return consumptionOfkWhPerMonth;
+	double dayOfYear = 365;
+	return consumptionOfkWhPerYear / dayOfYear * numberOfProcessesPerkWh;
+}
+
+unsigned ArgumentParser::getNumberOfProcessesPerkWh()
+{
+	return numberOfProcessesPerkWh;
 }
 
 void ArgumentParser::printHelp()
@@ -84,7 +97,9 @@ void ArgumentParser::printHelp()
 	std::cout << "usage: ims-project <arguments>" << std::endl
 	          << "Compulsory arguments:" << std::endl
 	          << "  -y <integer>      = Number of simulation time in years." << std::endl
-	          << "  -e <integer>      = Energy [kWh] consumed by water heating per month." << std::endl
+	          << "  -e <integer>      = Energy [kWh] consumed by water heating per year." << std::endl
+	          << "  -p <integer>      = Number of processes representing 1 kWh. More" << std::endl
+	          << "                      processes leads to penalty lack but higher accuracy." << std::endl
 	          << "Optional arguments:" << std::endl
 	          << "  -h                = Print this help message." << std::endl;
 }

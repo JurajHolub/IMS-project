@@ -14,37 +14,38 @@
 #include "statistics.h"
 #include "argument_parser.h"
 
-#define MONTH_ENERGY_CONSUMPTION 3090
-
 int main(int argc, char **argv)
 {
-	ArgumentParser argumentParser;
-	if (!argumentParser.parseArgs(argc, argv))
+	ArgumentParser argParser;
+	if (!argParser.parseArgs(argc, argv))
 	{
-		argumentParser.printHelp();
+		argParser.printHelp();
 		return 1;
 	}
 
 	RandomSeed(time(NULL));
-	Facility *monthCycle = new Facility("New month cycle facility");
-	YearCycle *yearCycle = new YearCycle();
-	Statistics *statistics = new Statistics(yearCycle, argumentParser.getConsumptionOfkWhPerMonth());
-	Store *monthlyEnergyConsumption =new Store(
-		"Monthly usage of energy for water heating",
-		argumentParser.getConsumptionOfkWhPerMonth()
+	YearCycle *yearCycle = new YearCycle(argParser.getNumberOfProcessesPerkWh());
+	Statistics *statistics = new Statistics(
+			yearCycle,
+			argParser.getConsumptionOfkWhPerDay(),
+			argParser.getNumberOfProcessesPerkWh()
+	);
+	Store *dailyEnergyConsumption =new Store(
+			"Monthly usage of energy for water heating",
+			argParser.getConsumptionOfkWhPerDay()
 	);
 
-	unsigned numberOfDays = argumentParser.getNumberOfYears() * 365 - 1;
-	Init(0, numberOfDays);
-	MonthlyEnergyFlow *monthlyEnergyFlow = new MonthlyEnergyFlow(yearCycle, monthCycle, monthlyEnergyConsumption, statistics);
+	unsigned numberOfDaysPerYear = 365;
+	unsigned numberOfDays = argParser.getNumberOfYears() * numberOfDaysPerYear;
+	Init(0, numberOfDays - 1);
+	MonthlyEnergyFlow *monthlyEnergyFlow = new MonthlyEnergyFlow(yearCycle, dailyEnergyConsumption, statistics);
 	monthlyEnergyFlow->Activate();
 
 	Run();
 	statistics->Output();
 
 	delete yearCycle;
-	delete monthCycle;
-	delete monthlyEnergyConsumption;
+	delete dailyEnergyConsumption;
 	delete statistics;
 	delete monthlyEnergyFlow;
 
