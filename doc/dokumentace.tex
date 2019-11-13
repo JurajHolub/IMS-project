@@ -102,7 +102,7 @@ Na základe rozboru navrhovaného systému bol vytvorený konceptuálny model (I
 Najmenšou energetickou jednotkou, ktorú model umožnuje reprezentovať je 1 kWh/deň a to z dôvodov primerane výpočetnej náročnosti vzhľadom na presnosť výpočtu. Mesačné pohyby energie v systéme sú v rádoch stoviek kWh. Cena a emisie pre menšie jednotky tepelnej energie sú zanedbateľne malé. Napríklad pre mesačne vyprodukovaných 500.4 kWh tepla vznikne 500 procesov. Ak by sme chceli reprezentovať energiu o ešte o jeden rád presnejšie tak by pre 500.4 kWh vzniklo 5004 procesov. Výpočetná náročnosť by teda vzrástla 10-násobne ale výpočet by bol presnejší len o 0.4 kWh čo znamená, že výpočet sa spresní približne o 2\%.
 
 
-\subsection{Petriho sieť}
+\subsection{Petriho sieť} \label{petri_net_section}
 Konceptuálny model reprezentovaný pomocou Petriho siete je priložený na obrázku \ref{obr_petri_net}. Linka \textit{Nový mesiac} je uvoľnená a následne obsadená vždy na začiatku nového mesiaca. Na začiatku nového mesiaca sa vygeneruje \textit{n} procesov \textit{Zdroj solárnej energie}, kde \textit{n} je rovné množstvu kWh tepla vyprodukovaného v daný mesiac solárnym panelom. Táto energia sa rozloží na celý mesiac pomocou časovaného prechodu s rovnomerným rozložením (IMS\cite{ims_slides} slide 89.) na intervale pokrývajúcom celý mesiac v jednotkách dňov. Následne každý proces reprezentujúci energiu prioritne prejde do stavu \textit{Spotrebovaná solárna energia} a to práve vtedy ak ešte nebola pokrytá mesačná spotreba energie. Množstvo požadovanej energie určuje linka \textit{Spotreba} s kapacitou 309 čo reprezentuje 309 kWh a teda bežnú mesačnú potrebu energie na ohrev vody. Linka sa vždy na konci mesiaca plne uvoľní. Ak je linka v danom mesiaci už prázdna, tak proces prechádza prechodom \textit{Prebytočná solárna energia}. Tento prechod reprezentuje energiu, ktorá nemá byť ako využitá. V prípade, že v danom mesiaci nebolo vyprodukované dostatočné množstvo solárnej energie na pokrytie spotreby, tak na konci mesiaca na linke \textit{Spotreba} ostáva nenulová kapacita. Táto kapacita na konci mesiaca reprezentujú množstvo energie v kWh, ktorá nebola dodaná solárnym systémom a preto musela byť získaná spaľovaním zemného plynu.
 
 
@@ -112,6 +112,22 @@ Konceptuálny model reprezentovaný pomocou Petriho siete je priložený na obr�
 	\caption{Navrhnutý konceptuálny model vo forme Petriho siete.}
 	\label{obr1}
 \end{figure} \label{obr_petri_net}
+
+\section{Architektúra programu}
+Priebeh simulácie je veľmi závislý od simulačného času a to špecificky od mesiaca, ktorý je aktuálne simulovaný. Architektúra programu preto implementuje špeciálnu datovú štruktúru ktorej stav uchováva informácie o aktuálnom mesiaci v simulačnom čase. Tok jednej jednotky solárnej energie v priebehu mesiaca je simulovaný jedným procesom. Každý takýto proces vznikne a zanikne v rámci jedného mesiaca. Množstvo aktuálne vygenerovaných procesov opäť závisí od aktuálneho mesiaca. Každý proces pridáva v priebehu simulácie datá do datovej štruktúri, ktorá zaznamenáva štatistické informácie o priebehu simulácie. Proces tieto datá generuje na základe stavu v akom sa aktuálne nachádza. Po uplinutí simulačného času po ktorý mala simulácia bežať je zo získaných štatistík dopočítané potrebné množstvo energie vyprodukovanej spaľovaním zemného plynu, ceny za vykurovanie a vyprodukované emisie.
+
+\subsection{Ročný cyklus}
+Ako popisuje sekcia \ref{petri_net_section}, linka \textit{Nový mesiac} je dostupná vždy na začiatku nového kalendárneho mesiaca. Toto chovanie zabezpečuje proces, ktorý linku obsadí, uspí sa na mesiac a linka je na konci mesiaca uvoľnená iným procesom popísaným v sekcii \ref{solar_energy_proces}. Avšak jednotlivé mesiace v roku sa líšia počtom dní. Preto je v rámci celého programu dostupná datová štruktúra, ktorá uchováva aktuálne prebiehajúci mesiac roku, pričom na začiatku je iniciovaná prvým mesiacom každého kalendárneho roku. Pri uvoľnení linky \textit{Nový mesiac} je vždy nastavený ďalší kalendárny mesiac v roku. Toto chovanie sa cyklicky opakuje po uplinutí roku. Táto štruktúra obsahuje pre každý mesiac príslušný počet dní a taktiež množstvo vyprodukovanej solárnej energie v danom mesiaci. Proces mesiaca sa teda vždy uspí na počet dní príslušný aktuálnemu mesiacu a zároveň vygeneruje príslušné množstvo procesov solárnej energie.
+
+\subsection{Solárna energia}\label{solar_energy_proces}
+Na 1 kWh vyprodukovanej solárnej energie v aktuálnom mesiaci, vznikne práve jeden proces. Proces sa po svojom vzniku uspí a to na dobu vygenerovanú generátorom pseudonáhodných čísel (IMS\cite{ims_slides} slide 167.) s rovnomerným rozložením \textit{R(0, b-1)}, kde \textit{b} je počet dní v aktuálnom mesiaci. Takto sa spotreba energie rovnomerne rozloží na celý mesiac. Keď je proces aktívny, pokúsi sa obsadiť jedno miesto v linke \textit{Mesačná spotreba}. Linka má kapacitu rovnú celkovej mesačnej spotrebe energie na ohrev vody. Každý proces sa na konci svojho behu pozrie či nie je posledným bežiacim procesom v danom mesiaci. Tieto informácie mu poskytne štatistická datová štruktúra. Ak je posledný, tak uvoľní celú obsadenú kapacitu linky \textit{Mesačná spotreba} a taktiež uvoľní linku \textit{Nový mesiac} čím umožnuje začiatok nového mesiaca.
+
+\subsection{Používanie programu}
+Simuláčný čas programu vždy začína v čase 0 a jeho dĺžku môže uživateľ nastaviť v rokoch. ďalej môže uživateľ nastaviť množstvo spotrebovanej solárnej energie za mesiac a to v jednotkách kWh. Program sa dá preložiť spustením priloženého \texttt{Makefile} a následne spustiť:\\
+\texttt{./ims-project -y 30 -e 309} \\
+Argument \texttt{-y} definuje počet odsimulovaných rokov a argument \texttt{-e} definuje mesačnú spotrebu energie.
+
+\section{Simulačné experimenty}
 
 \newpage
 \bibliographystyle{czechiso}
