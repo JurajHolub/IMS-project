@@ -50,6 +50,17 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 		}
 	}
 
+	if (!kWhDefined)
+	{
+		kWhDefined = true;
+		consumptionOfkWhPerYear = 3713;
+	}
+	if (!processesDefined)
+	{
+		processesDefined = true;
+		numberOfProcessesPerkWh = 1;
+	}
+
 	return argsLeft.empty() && yearsDefined && kWhDefined && processesDefined;
 }
 
@@ -97,9 +108,11 @@ void ArgumentParser::printHelp()
 	std::cout << "usage: ims-project <arguments>" << std::endl
 	          << "Compulsory arguments:" << std::endl
 	          << "  -y <integer>      = Number of simulation time in years." << std::endl
+	          << "Optional arguments:" << std::endl
 	          << "  -e <integer>      = Energy [kWh] consumed by water heating per year." << std::endl
+	          << "                      (If not defined then it is 3713 kWh per year by default)" << std::endl
 	          << "  -p <integer>      = Number of processes representing 1 kWh. More" << std::endl
 	          << "                      processes leads to penalty lack but higher accuracy." << std::endl
-	          << "Optional arguments:" << std::endl
+	          << "                      (If not defined then it is 1 proces to 1 kWh by default)" << std::endl
 	          << "  -h                = Print this help message." << std::endl;
 }

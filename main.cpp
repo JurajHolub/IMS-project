@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 			argParser.getNumberOfProcessesPerkWh()
 	);
 	Store *dailyEnergyConsumption =new Store(
-			"Monthly usage of energy for water heating",
+			"Daily usage of energy for water heating.",
 			argParser.getConsumptionOfkWhPerDay()
 	);
 
