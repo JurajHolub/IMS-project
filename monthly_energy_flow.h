@@ -16,14 +16,17 @@
 class MonthlyEnergyFlow : public Process {
 private:
 	YearCycle *yearCycle;
-	Store *dailyEnergyConsumption;
-	Statistics *statistics;
+	double throughput;
+	unsigned collectorArea;
+	angle degree;
+
 public:
 
 	MonthlyEnergyFlow(
 		YearCycle *yearCycle,
-		Store *dailyEnergyConsumption,
-		Statistics *statistics
+		double throughput,
+		unsigned collectorArea,
+		angle degree
 	);
 
 	void setEndOfMonthCycle();

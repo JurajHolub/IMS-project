@@ -10,30 +10,31 @@
 SolarEnergySource::SolarEnergySource
 (
 	YearCycle *yearCycle,
-	MonthlyEnergyFlow *monthlyEnergyFlow,
-	Store *dailyEnergyConsumption,
-	Statistics *statistics
+	double dailyEnergyProduct
 )
 {
 	this->yearCycle = yearCycle;
-	this->monthlyEnergyFlow = monthlyEnergyFlow;
-	this->dailyEnergyConsumption = dailyEnergyConsumption;
-	this->statistics = statistics;
+	this->dailyEnergyProduct = dailyEnergyProduct;
 }
 
 void SolarEnergySource::Behavior()
 {
-	statistics->consumeEnergy();
+	double TANK_CAPACITY = 200 * 10e-3;
+	double INPUT_WATER_TEMPERATURE = 0.1;
+	double OUTPUT_WATER_TEMPERATURE = 0.5;
+	double requiredHeat = 41.8 * 9.956 * TANK_CAPACITY * ( OUTPUT_WATER_TEMPERATURE - INPUT_WATER_TEMPERATURE ) * 1.1 / 36;
+	double dailyEnergyConsumption = Exponential(requiredHeat);
+	double bilance = dailyEnergyProduct - dailyEnergyConsumption;
 
-	if (dailyEnergyConsumption->Full())
+	if (dailyEnergyProduct < dailyEnergyConsumption)
 	{
-		statistics->wasteSolarEnergy();
+		// nedostatok
+		yearCycle->nedostatok += dailyEnergyConsumption - dailyEnergyProduct;
 	}
 	else
 	{
-		Enter(*dailyEnergyConsumption, 1);
-		statistics->consumeSolarEnergy();
-		Wait(1); // wait one day to release daily consumption
-		Leave(*dailyEnergyConsumption, 1);
+		// prebytok
+		yearCycle->prebytok += dailyEnergyProduct - dailyEnergyConsumption;
 	}
+	yearCycle->spotreba += dailyEnergyConsumption;
 }

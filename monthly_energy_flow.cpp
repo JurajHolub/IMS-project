@@ -11,25 +11,39 @@
 
 MonthlyEnergyFlow::MonthlyEnergyFlow(
 	YearCycle *yearCycle,
-	Store *dailyEnergyConsumption,
-	Statistics *statistics)
+	double throughput,
+	unsigned collectorArea,
+	angle degree
+)
 {
 	this->yearCycle = yearCycle;
-	this->dailyEnergyConsumption = dailyEnergyConsumption;
-	this->statistics = statistics;
+	this->throughput = throughput;
+	this->collectorArea = collectorArea;
+	this->degree = degree;
 }
 
 void MonthlyEnergyFlow::Behavior()
 {
+	//calculate once for each month
 	while (1)
 	{
 		yearCycle->setNewMonth();
-		for (int i = 0; i < yearCycle->getCurrentSolarEnergyProduction(); ++i)
+		auto month = yearCycle->getCurrentMonth();
+		double collectorEfficiency = throughput - collectorArea * ((30 - yearCycle->MEAN_TEMPERATURE_OF_SUNLIGHT_BRNO[month]) / yearCycle->MEAN_INTENSITY_OF_SUNLIGHT_BRNO[degree][month]);
+		double realIncidentEnergy = yearCycle->SUNLIGHT_RATIO_BRNO[month] * yearCycle->TEORETICAL_CAPTURED_SUNLIGHT_BRNO[degree][month];
+		double realCapturedEnergy = collectorEfficiency * realIncidentEnergy;
+		double dailyEnergyProduct = realCapturedEnergy * collectorArea;
+
+		for (unsigned day = 0; day < yearCycle->getNumberOfDaysForCurrentMonth(); ++day)
 		{
-			auto source = new SolarEnergySource(yearCycle, this, dailyEnergyConsumption, statistics);
-			double t = Time + Uniform(0, yearCycle->getNumberOfDaysForCurrentMonth() - 1);
-			source->Activate(t);
+			auto dayProcess = new SolarEnergySource(
+				yearCycle,
+				dailyEnergyProduct
+			);
+			dayProcess->Activate(Time + day);
 		}
+
 		Wait(yearCycle->getNumberOfDaysForCurrentMonth());
 	}
 }
+

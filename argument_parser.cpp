@@ -11,57 +11,56 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 {
 	int opt;
 	const struct option long_options[] = {
-			{"y" , required_argument, 0, NUMBER_OF_YEARS},
-			{"e" , required_argument, 0, CONSUMPTION_OF_KWH_PER_DAY},
-			{"p" , required_argument, 0, NUMBER_OF_PROCESSES_PER_KWH},
-			{"h" , no_argument, 0,       HELP_MSG}
+		{"years" , required_argument, 0,  NUMBER_OF_YEARS_CONST},
+		{"tank" , required_argument, 0,   TANK_CAPACITY_CONST},
+		{"area" , required_argument, 0,   COLLECTOR_AREA_CONST},
+		{"degree" , required_argument, 0, ROOF_DEGREE_CONST},
+		{"help" , no_argument, 0,         HELP_MSG_CONST}
 	};
 	std::list<std::string> argsLeft;
 	for (int i = 1; i < argc; i++)
 	{
 		argsLeft.push_front(std::string(argv[i]));
 	}
+
 	bool yearsDefined = false;
-	bool kWhDefined = false;
-	bool processesDefined = false;
+	bool tankDefined = false;
+	bool areaDefined = false;
+	bool degreeDefined = false;
 
 	while ((opt = getopt_long_only(argc, argv, "", long_options, nullptr)) != -1)
 	{
 		switch (opt)
 		{
-			case NUMBER_OF_YEARS:
+			case NUMBER_OF_YEARS_CONST:
 				yearsDefined = parseNumber(optarg, numberOfYears);
-				argsLeft.remove("-y");
+				argsLeft.remove("-years");
 				argsLeft.remove(optarg);
 				break;
-			case CONSUMPTION_OF_KWH_PER_DAY:
-				kWhDefined = parseNumber(optarg, consumptionOfkWhPerYear);
-				argsLeft.remove("-e");
+			case TANK_CAPACITY_CONST:
+				tankDefined = parseNumber(optarg, tankCapacity);
+				argsLeft.remove("-tank");
 				argsLeft.remove(optarg);
 				break;
-			case NUMBER_OF_PROCESSES_PER_KWH:
-				processesDefined = parseNumber(optarg, numberOfProcessesPerkWh);
-				argsLeft.remove("-p");
+			case COLLECTOR_AREA_CONST:
+				areaDefined = parseNumber(optarg, collectorArea);
+				argsLeft.remove("-area");
+				argsLeft.remove(optarg);
+				break;
+			case ROOF_DEGREE_CONST:
+				degreeDefined = parseNumber(optarg, roofDegree);
+				argsLeft.remove("-degree");
 				argsLeft.remove(optarg);
 				break;
 			default:
-			case HELP_MSG:
+			case HELP_MSG_CONST:
 				return false; //just print help message
 		}
 	}
 
-	if (!kWhDefined)
-	{
-		kWhDefined = true;
-		consumptionOfkWhPerYear = 3713;
-	}
-	if (!processesDefined)
-	{
-		processesDefined = true;
-		numberOfProcessesPerkWh = 1;
-	}
+	bool allDefined = yearsDefined && tankDefined && areaDefined && degreeDefined;
 
-	return argsLeft.empty() && yearsDefined && kWhDefined && processesDefined;
+	return argsLeft.empty() && allDefined;
 }
 
 bool ArgumentParser::parseNumber(std::string input, unsigned &output)
@@ -85,22 +84,6 @@ bool ArgumentParser::parseNumber(std::string input, unsigned &output)
 	output = atoi(input.c_str());
 
 	return true;
-}
-
-unsigned ArgumentParser::getNumberOfYears()
-{
-	return numberOfYears;
-}
-
-unsigned ArgumentParser::getConsumptionOfkWhPerDay()
-{
-	double dayOfYear = 365;
-	return consumptionOfkWhPerYear / dayOfYear * numberOfProcessesPerkWh;
-}
-
-unsigned ArgumentParser::getNumberOfProcessesPerkWh()
-{
-	return numberOfProcessesPerkWh;
 }
 
 void ArgumentParser::printHelp()

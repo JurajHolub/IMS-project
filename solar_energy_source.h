@@ -16,15 +16,12 @@
 class SolarEnergySource : public Process {
 private:
 	YearCycle *yearCycle;
-	MonthlyEnergyFlow *monthlyEnergyFlow;
-	Store *dailyEnergyConsumption;
-	Statistics * statistics;
+	double dailyEnergyProduct;
 public:
 	SolarEnergySource(
 		YearCycle *yearCycle,
-		MonthlyEnergyFlow *monthlyEnergyFlow,
-		Store *dailyEnergyConsumption,
-		Statistics * statistics);
+		double dailyEnergyProduct
+	);
 
 	void Behavior() override ;
 
