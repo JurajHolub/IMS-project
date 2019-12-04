@@ -11,28 +11,17 @@
 #include "year_cycle.h"
 
 class Statistics {
-private:
-	YearCycle * yearCycle;
-	unsigned dailyConsumption;
-	unsigned consumedSolarEnergy;
-	unsigned consumedFosilEnergy;
-	unsigned consumedEnergy;
-	unsigned energyWaste;
-	unsigned numberOfProcessesPerDay;
+public:
+	double consumedSolarEnergy;
+	double consumedFosilEnergy;
+	double consumedEnergy;
+	double energyWaste;
 
 	const double COST_OF_NATURAL_GAS_ENERGY_PER_KWH = 1.71; //CZK
 	const double COST_OF_SOLAR_PANEL_SET = 82000; //CZK
 	const double GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS = 202;
 
 public:
-
-	Statistics(YearCycle *yearCycle, unsigned dailyConsumption, unsigned numberOfprocessesPerDay);
-
-	void consumeSolarEnergy();
-	unsigned calculateFosilEnergy();
-	void consumeEnergy();
-	void wasteSolarEnergy();
-	void divideStatisticsByNumberOfProcesses();
 
 	void Output();
 };

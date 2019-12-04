@@ -5,22 +5,26 @@
  * @date November 2019
  */
 
-#ifndef IMS_PROJECT_SOLAR_ENERGY_SOURCE_H
-#define IMS_PROJECT_SOLAR_ENERGY_SOURCE_H
+#ifndef IMS_PROJECT_DAILY_PROCESS_H
+#define IMS_PROJECT_DAILY_PROCESS_H
 
 #include <simlib.h>
 #include "year_cycle.h"
-#include "monthly_energy_flow.h"
+#include "monthly_process.h"
 #include "statistics.h"
 
-class SolarEnergySource : public Process {
+class DayilyProcess : public Process {
 private:
 	YearCycle *yearCycle;
+	Statistics *stat;
 	double dailyEnergyProduct;
+	double requiredHeat;
 public:
-	SolarEnergySource(
+	DayilyProcess(
 		YearCycle *yearCycle,
-		double dailyEnergyProduct
+		Statistics *stat,
+		double dailyEnergyProduct,
+		double requiredHeat
 	);
 
 	void Behavior() override ;
@@ -28,4 +32,4 @@ public:
 };
 
 
-#endif //IMS_PROJECT_SOLAR_ENERGY_SOURCE_H
+#endif //IMS_PROJECT_DAILY_PROCESS_H

@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <simlib.h>
-#include "monthly_energy_flow.h"
+#include "monthly_process.h"
 #include "statistics.h"
 #include "argument_parser.h"
 
@@ -29,49 +29,43 @@ int main(int argc, char **argv)
 	printf("%-25s %-5d [degrees]\n", "Degree of roof:", argParser.roofDegree);
 
 	RandomSeed(time(NULL));
+
 	YearCycle *yearCycle = new YearCycle(1);
-	// calculate only once
-	double COLLECTOR_AREA = argParser.collectorArea;
-	double TANK_CAPACITY = argParser.tankCapacity * 10e-3;
-	double INPUT_WATER_TEMPERATURE = 0.1;
-	double OUTPUT_WATER_TEMPERATURE = 0.5;
-	double requiredHeat = 41.8 * 9.956 * TANK_CAPACITY * ( OUTPUT_WATER_TEMPERATURE - INPUT_WATER_TEMPERATURE ) * 1.1 / 0.036;
-	angle degree = (angle)argParser.roofDegree;
+
+	// calculate required heat for warming WATER TANK
+	double tankCapacity = argParser.tankCapacity * 10e-3;
+	const double INPUT_WATER_TEMPERATURE = 0.1; // 10 degrees
+	const double OUTPUT_WATER_TEMPERATURE = 0.5; // 50 degrees
+	const double WATER_HEAT_CAPACITY = 41.8;
+	const double WATER_DENSITY = 9.956;
+	double requiredHeat; //required heat in kWh
+	requiredHeat = WATER_HEAT_CAPACITY * WATER_DENSITY * tankCapacity * ( OUTPUT_WATER_TEMPERATURE - INPUT_WATER_TEMPERATURE ) * 1.1 / 36;
+
 	double throughput = Uniform(0.85, 0.95);
 
 	unsigned numberOfDaysPerYear = 365;
 	unsigned numberOfDays = argParser.numberOfYears * numberOfDaysPerYear;
+
+	Statistics *statistics = new Statistics();
+
 	Init(0, numberOfDays - 1);
-	MonthlyEnergyFlow *monthlyEnergyFlow = new MonthlyEnergyFlow(
+	MonthlyProcess *monthlyProcess = new MonthlyProcess(
 		yearCycle,
+		statistics,
 		throughput,
-		COLLECTOR_AREA,
-		degree
+		argParser.collectorArea,
+		requiredHeat,
+		(angle)argParser.roofDegree
 	);
-	monthlyEnergyFlow->Activate();
+	monthlyProcess->Activate();
 
 	Run();
-	std::cout << "Spotreba: " << yearCycle->spotreba << "\n";
-	std::cout << "Prebytok: " << yearCycle->prebytok << "\n";
-	std::cout << "Nedostatok: " << yearCycle->nedostatok << "\n";
-return 0;
-/*
-	Statistics *statistics = new Statistics(
-			yearCycle,
-			argParser.getConsumptionOfkWhPerDay(),
-			argParser.getNumberOfProcessesPerkWh()
-	);
-	Store *dailyEnergyConsumption =new Store(
-			"Daily usage of energy for water heating.",
-			argParser.getConsumptionOfkWhPerDay()
-	);
+
 	statistics->Output();
 
 	delete yearCycle;
-	delete dailyEnergyConsumption;
 	delete statistics;
-	delete monthlyEnergyFlow;
+	delete monthlyProcess;
 
 	return 0;
- */
 }

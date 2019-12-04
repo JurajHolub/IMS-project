@@ -6,23 +6,27 @@
  */
 
 #include <iostream>
-#include "monthly_energy_flow.h"
-#include "solar_energy_source.h"
+#include "monthly_process.h"
+#include "daily_process.h"
 
-MonthlyEnergyFlow::MonthlyEnergyFlow(
+MonthlyProcess::MonthlyProcess(
 	YearCycle *yearCycle,
+	Statistics *stat,
 	double throughput,
 	unsigned collectorArea,
+	double requiredHeat,
 	angle degree
 )
 {
 	this->yearCycle = yearCycle;
+	this->stat = stat;
 	this->throughput = throughput;
 	this->collectorArea = collectorArea;
+	this->requiredHeat = requiredHeat;
 	this->degree = degree;
 }
 
-void MonthlyEnergyFlow::Behavior()
+void MonthlyProcess::Behavior()
 {
 	//calculate once for each month
 	while (1)
@@ -36,9 +40,11 @@ void MonthlyEnergyFlow::Behavior()
 
 		for (unsigned day = 0; day < yearCycle->getNumberOfDaysForCurrentMonth(); ++day)
 		{
-			auto dayProcess = new SolarEnergySource(
+			auto dayProcess = new DayilyProcess(
 				yearCycle,
-				dailyEnergyProduct
+				stat,
+				dailyEnergyProduct,
+				requiredHeat
 			);
 			dayProcess->Activate(Time + day);
 		}

@@ -8,63 +8,21 @@
 #include "statistics.h"
 #include <iostream>
 
-Statistics::Statistics(YearCycle *yearCycle, unsigned dailyConsumption, unsigned numberOfprocessesPerDay)
-{
-	this->yearCycle = yearCycle;
-	this->dailyConsumption = dailyConsumption;
-	this->numberOfProcessesPerDay = numberOfprocessesPerDay;
-	consumedSolarEnergy = 0;
-	consumedFosilEnergy = 0;
-	consumedEnergy = 0;
-	energyWaste = 0;
-}
-
-unsigned Statistics::calculateFosilEnergy()
-{
-	unsigned numberOfDaysInOneYear = 365;
-	unsigned yearConsumption = dailyConsumption * numberOfDaysInOneYear / numberOfProcessesPerDay;
-	return yearConsumption * yearCycle->getNumberOfYears() - consumedSolarEnergy;
-}
-
-void Statistics::consumeSolarEnergy()
-{
-	consumedSolarEnergy++;
-}
-
-
-void Statistics::wasteSolarEnergy()
-{
-	energyWaste++;
-}
-
-void Statistics::divideStatisticsByNumberOfProcesses()
-{
-	consumedSolarEnergy /= numberOfProcessesPerDay;
-	energyWaste /= numberOfProcessesPerDay;
-}
-
-void Statistics::consumeEnergy()
-{
-}
-
 void Statistics::Output()
 {
-	divideStatisticsByNumberOfProcesses();
-
-	unsigned fosilEnergy = calculateFosilEnergy();
-	unsigned consumedEnergyTotal = (consumedSolarEnergy + fosilEnergy);
-	unsigned priceWithSystem = COST_OF_SOLAR_PANEL_SET + fosilEnergy * COST_OF_NATURAL_GAS_ENERGY_PER_KWH;
-	unsigned priceWithoutSystem = consumedEnergyTotal * COST_OF_NATURAL_GAS_ENERGY_PER_KWH;
-	unsigned emisionsWithSystem = fosilEnergy * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS;
-	unsigned emisionsWithoutSystem = consumedEnergyTotal * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS;
+	//double priceWithSystem = COST_OF_SOLAR_PANEL_SET + consumedFosilEnergy * COST_OF_NATURAL_GAS_ENERGY_PER_KWH;
+	//double priceWithoutSystem = consumedEnergy * COST_OF_NATURAL_GAS_ENERGY_PER_KWH;
+	double emisionsWithSystem = consumedFosilEnergy * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS * 10e-3;
+	double emisionsWithoutSystem = consumedEnergy * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS * 10e-3;
 
 
-	printf("Consumed solar energy:             %10d [kWh]\n", consumedSolarEnergy);
-	printf("Consumed fosil energy:             %10d [kWh]\n", fosilEnergy);
-	printf("Wasted solar energy:               %10d [kWh]\n", energyWaste);
-	printf("Consumed total:                    %10d [kWh]\n", consumedEnergyTotal);
-	printf("Price without solar system:        %10d [CZK]\n", priceWithoutSystem);
-	printf("Price with solar system:           %10d [CZK]\n", priceWithSystem);
-	printf("CO2 emisions with solar system:    %10d [g]\n",  emisionsWithSystem);
-	printf("CO2 emisions without solar system: %10d [g]\n",  emisionsWithoutSystem);
+	printf("=================== STATISTICS ===================\n");
+	printf("Consumed solar energy:             %.2f [kWh]\n", consumedSolarEnergy);
+	printf("Consumed fosil energy:             %.2f [kWh]\n", consumedFosilEnergy);
+	printf("Wasted solar energy:               %.2f [kWh]\n", energyWaste);
+	printf("Consumed total:                    %.2f [kWh]\n", consumedEnergy);
+	//printf("Price without solar system:        %.2f [CZK]\n", priceWithoutSystem);
+	//printf("Price with solar system:           %.2f [CZK]\n", priceWithSystem);
+	printf("CO2 emisions with solar system:    %.2f [kg]\n",  emisionsWithSystem);
+	printf("CO2 emisions without solar system: %.2f [kg]\n",  emisionsWithoutSystem);
 }

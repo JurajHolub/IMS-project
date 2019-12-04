@@ -90,12 +90,11 @@ void ArgumentParser::printHelp()
 {
 	std::cout << "usage: ims-project <arguments>" << std::endl
 	          << "Compulsory arguments:" << std::endl
-	          << "  -y <integer>      = Number of simulation time in years." << std::endl
+	          << "  -years <integer>       = Number of simulation time in years." << std::endl
+			  << "  -tank <integer>        = Size of water tank for heating in liters." << std::endl
+			  << "  -area <integer>        = Area of solar panel in square meters." << std::endl
+			  << "  -degree <integer>      = Roof slope => solar panel degree." << std::endl
+			  << "                           Possible values = {0, 15, 30, 45, 60, 75, 90}" << std::endl
 	          << "Optional arguments:" << std::endl
-	          << "  -e <integer>      = Energy [kWh] consumed by water heating per year." << std::endl
-	          << "                      (If not defined then it is 3713 kWh per year by default)" << std::endl
-	          << "  -p <integer>      = Number of processes representing 1 kWh. More" << std::endl
-	          << "                      processes leads to penalty lack but higher accuracy." << std::endl
-	          << "                      (If not defined then it is 1 proces to 1 kWh by default)" << std::endl
-	          << "  -h                = Print this help message." << std::endl;
+	          << "  -help                  = Print this help message." << std::endl;
 }

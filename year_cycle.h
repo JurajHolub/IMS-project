@@ -24,10 +24,6 @@ class YearCycle {
 
 public:
 
-	double nedostatok = 0;
-	double prebytok = 0;
-	double spotreba = 0;
-
 	enum Months {
 		January,
 		February,
