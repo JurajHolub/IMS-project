@@ -8,19 +8,18 @@
 #include "year_cycle.h"
 #include <iostream>
 
-YearCycle::YearCycle(unsigned numberOfProcessesPerDay)
+YearCycle::YearCycle()
 {
 	year = 0;
 	currentMonth = Decembre;
-	this->numberOfProcessesPerDay = numberOfProcessesPerDay;
 }
 
-YearCycle::Months YearCycle::getCurrentMonth()
+Months YearCycle::getCurrentMonth()
 {
 	return currentMonth;
 }
 
-YearCycle::Months YearCycle::setNewMonth()
+Months YearCycle::setNewMonth()
 {
 	currentMonth = Months((currentMonth + 1) % (Decembre + 1));
 	if (currentMonth == January)
@@ -34,12 +33,6 @@ unsigned YearCycle::getNumberOfDaysForCurrentMonth()
 {
 	return numberOfMonthDay[currentMonth];
 }
-
-unsigned YearCycle::getCurrentSolarEnergyProduction()
-{
-	return monthlySolarProduction[currentMonth] * numberOfProcessesPerDay;
-}
-
 unsigned YearCycle::getNumberOfYears()
 {
 	return year;

@@ -38,7 +38,7 @@
 			IMS - Modelování a simulace \\ 
 			\medskip 
 			\Large{
-				Ohrev užitkovej vody v rodinnom dome solárnym systémom.
+				Ohrev vody v rodinnom dome solárnym systémom.
 			}
 			\vspace{\stretch{0.618}}}
 		\setlength{\parindent}{0.3em}\\
@@ -52,40 +52,26 @@
 \newpage
 
 \section{Úvod}
-Stavebníctvo má v dnešnej dobe veľký dopad na životné prostredie. Spôsob získavania tepelnej energie pre ohrev obytných objektov pomocou alternatívnych zdrojov produkuje nezanedbateľne menšie množstvo CO$_2$ spalín. Táto práca analyzuje systém na ohrev užitkovej vody pre konkrétny rodinný dom. Simulačný model zhodnocuje dopad získavania tepelnej energie zo solárnych panelov na životné prostredie a návratnosť tejto investície v čase. 
+Stavebníctvo má v dnešnej dobe veľký dopad na životné prostredie. Spôsob získavania tepelnej energie pre ohrev obytných objektov pomocou alternatívnych zdrojov produkuje nezanedbateľne menšie množstvo CO$_2$ spalín. Táto práca analyzuje systém na ohrev vody pomocou solárneho panelu, ktorý ohrieva zásobník s vodou. Výsledok práce je zhodnoťenie dopadu získavania tepelnej energie zo solárnych panelov na životné prostredie oproti získavaniu tepla spaľovaním zemného plynu a vyhodnotenie efektívnosti navrhovaného systému. 
 
 \subsection{Zdroje infromácií a autori práce}
-Konkrétna špecifikácia a hodnoty požiadaviek na tepelnú energiu v dome vychádzajú z nasledujúcej práce \cite{bc_solar_system}. Prácu vytvoril vedecký pracovník Energetického ústavu Fakulty strojního inženýrství VUT v Brne Ing. Ján Tuhovčák, Ph.D. ako záverečnú prácu a úspešne ju obhájil s klasifikáciou A. Cena na vybudovanie systému vychádza taktiež s tejto práce. Cena zemného plynu je získaná z aktuálneho cenníku fosilných palív pre November 2019 \cite{ceny_paliva}. Simulačný model vytvorili Juraj Holub A Matej Parobek na základe týchto informácií. 
+Postupy a výpočetné vzťahy pre návrh konkrétneho solárneho systému boli použité s odbornej publikácie \cite{Cihelka} určenej projektantom solárnej techniky. Pre validáciu návrhu bola použitý konkrétny navhrhovaný projekt publikovaný v nasledujúcej práci \cite{bc_solar_system}. Referenčný návrh vytvoril vedecký pracovník Energetického ústavu Fakulty strojního inženýrství VUT v Brne Ing. Ján Tuhovčák, Ph.D. ako záverečnú prácu a úspešne ju obhájil s klasifikáciou A. Simulačný model vytvorili Juraj Holub A Matej Parobek na základe týchto informácií. 
 
 \subsection{Validácia navrhovaného modelu}
-Práca s ktorej model vychádza poskytuje ročné vyhodnotenie z hľadiska energetických nárokov objektu. Výsledky modelovej simulácie pre rovnaké časové obdobie sa zhodovali s týmito podkladmi. Z tohto hľadiska bol model vyhodnotený ako validný.
-
+Výsledky našeho návrhu sú korelované s ročným vyhodnotením z hľadiska energetických nárokov objektu, ktoré poskytuje referenčný návrh. Naše výsledky pre rovnaké časové obdobie sa zhodovali s týmito podkladmi. Z tohto hľadiska bol model vyhodnotený ako validný.
 
 \section{Rozbor navrhovaného systému a použitých technológií}
 
-V rodinnom dome je v prevádzke systém na ohrev vody pomocou zemného plynu s bežným kotlom. Aktuálna sadzba za plyn potrebný na vyprodukovanie 1 kWh je 1,71 CZK. Vyprodukovaná energia pomocou solárnych panelov je zadarmo ale počiatočná investícia na vybudovanie a nákup solárneho systému o ploche 6m$^2$ je 82 000 CZK. V rodinnom dome sa spotreba tepla na ohrev vody pohybuje okolo 3 713,079 kWh za rok. Spotreba je rovnomerná po celý rok, nezávislo od ročného obdobia. Naopak produkcia tepelnej energie pomocou solárnych panelov je závislá na ročnom období. Pre daný solárny panel a rodinný dom miestom v Brne je vzhľadom na počet dní v mesiaci, strednú teplotu vzduchu, pomernú dĺžku slnečného svitu, sklon kolektorov (30$^{\circ}$) a ich orientáciu (juh), produkcia tepla pre jednotlivé mesiace zobrazená v tabuľke \ref{tab:mesacna_produkcia_solar}.
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
-		\textbf{Mesiac} & \textbf{\begin{tabular}[c]{@{}c@{}}Vyprodukované teplo\\ {[}kWh{]}\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}Počet dní\\ v mesiaci\end{tabular}} \\ \hline
-		I. & 37,232 & 31 \\ \hline
-		II. & 112,367 & 28 \\ \hline
-		III. & 269,929 & 31 \\ \hline
-		IV. & 370,764 & 30 \\ \hline
-		V. & 617,854 & 31 \\ \hline
-		VI. & 717,653 & 30 \\ \hline
-		VII. & 768,901 & 31 \\ \hline
-		VIII. & 601,239 & 31 \\ \hline
-		IX. & 418,186 & 30 \\ \hline
-		X. & 191,496 & 31 \\ \hline
-		XI. & 58,362 & 30 \\ \hline
-		XII. & 16,692 & 31 \\ \hline
-	\end{tabular}
-	\caption{Vyprodukované teplo pomocou solárnych panelov pre jednotlivé mesiace.}
-	\label{tab:mesacna_produkcia_solar}
-\end{table}
+V rodinnom dome je v prevádzke systém na ohrev vody pomocou zemného plynu s bežným kotlom. Denná spotreba teplej vody je približne 50 l na osobu. V rodinnom dome zo 4 obyvateľmi sa spotreba tepla na ohrev vody pohybuje okolo 3 700 kWh za rok. Spotreba je rovnomerná po celý rok, nezávislo od ročného obdobia. Naopak produkcia tepelnej energie pomocou solárnych panelov je závislá na ročnom období. Pre daný solárny panel a rodinný dom miestom v Brne je produkcia tepla pre jednotlivé kalendárne mesiace závislá od nasledujúcich faktorov:
+\begin{itemize}
+	\item Počet dní v mesiaci.
+	\item Objem zásobníka na vodu.
+	\item Sklon solárnych panelov, ich plocha a orientácia (juh).
+	\item Teoreticky dopadajúca slnečná energia (príloha \ref{tabulky}, obrázok \ref{str34}).
+	\item Pomerná dĺžka slnečného svitu (príloha \ref{tabulky}, obrázok \ref{str41}).
+	\item Stredná teplota vzduchu (príloha \ref{tabulky}, obrázok \ref{str50}).
+	\item Stredná intenzita slnečného žiarenia (príloha \ref{tabulky}, obrázok \ref{str51}).
+\end{itemize}
 
 Ak solárna energia v danom mesiaci nepostačuje na pokrytie spotrebovaného tepla tak sa požadovaná energia získava sekundárnym zdrojom, ktorým je plynový kotol. Na druhej strane, prebitky solárnej energie sa v navrhovanom systéme vôbec nevyužívajú. Navrhovaný solárny systém neprodukuje žiadne spaliny CO$_2$. Naproti tomu, spaľovanie plynu produkuje 202g CO$_2$ spalín \footnote{Zdroj \href{https://www.oplyne.info/ecology/porovnanie-produkcie-znecistujucich-latok-so2-tzl-nox-co-a-sklenikoveho-plynu-co2-vyprodukovanych-spalinami-v-rodinnom-dome-vykurovanie-drevom-ciernym-hnedym-uhlim-a-zemnym-plynom/}{https://www.oplyne.info/ecology/porovnanie-produkcie-znecistujucich-latok...}}  na 1 kWh vyprodukovaného tepla. Podľa referenčnej práce sú emisie spojené s vybudovaním solárneho systému porovnateľné s emisiami na vybudovanie pôvodného systému. S tohto dôvodu emisie spojené s vybudovaním systému táto práca neuvažuje. 
 
@@ -149,5 +135,37 @@ znížime množstvo vyproduk energ a sledujeme v čase
 \newpage
 \bibliographystyle{czechiso}
 \bibliography{bib}
+
+\newpage
+\appendix
+
+\section{Tabuľkové hodnoty pre návrh solárnej tepelnej techniky}\label{tabulky}
+\begin{figure}[H] 
+\centering
+%\includegraphics[width=.7\paperwidth]{images/str34.png}
+\caption{Teoreticky možná energia dopadajúca za deň na plochu v jednotlivých mesiacoch.}
+\label{str34}
+\end{figure}
+
+\begin{figure}[H] 
+\centering
+%\includegraphics[width=.7\paperwidth]{images/str41.png}
+\caption{Pomerná doba slnečného svitu.}
+\label{str41}
+\end{figure}
+
+\begin{figure}[H] 
+\centering
+%\includegraphics[width=.7\paperwidth]{images/str50.png}
+\caption{Stredná teplota v dobe slne č ného svitu v jednotlivých mesiacoch.}
+\label{str50}
+\end{figure}
+
+\begin{figure}[H] 
+\centering
+%\includegraphics[width=.7\paperwidth]{images/str51.png}
+\caption{Stredná intenzita slnečného žiarenia v jednotlivých mesiacoch.}
+\label{str51}
+\end{figure}
 
 \end{document}

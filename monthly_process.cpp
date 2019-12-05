@@ -8,14 +8,17 @@
 #include <iostream>
 #include "monthly_process.h"
 #include "daily_process.h"
+#include "sunlight_brno.h"
+#include "mean_intensity_of_sunlight_brno.h"
+#include "teoretical_incident_sunlight_brno.h"
 
 MonthlyProcess::MonthlyProcess(
-	YearCycle *yearCycle,
-	Statistics *stat,
-	double throughput,
-	unsigned collectorArea,
-	double requiredHeat,
-	angle degree
+		YearCycle *yearCycle,
+		Statistics *stat,
+		double throughput,
+		unsigned collectorArea,
+		double requiredHeat,
+		Angle degree
 )
 {
 	this->yearCycle = yearCycle;
@@ -33,8 +36,8 @@ void MonthlyProcess::Behavior()
 	{
 		yearCycle->setNewMonth();
 		auto month = yearCycle->getCurrentMonth();
-		double collectorEfficiency = throughput - collectorArea * ((30 - yearCycle->MEAN_TEMPERATURE_OF_SUNLIGHT_BRNO[month]) / yearCycle->MEAN_INTENSITY_OF_SUNLIGHT_BRNO[degree][month]);
-		double realIncidentEnergy = yearCycle->SUNLIGHT_RATIO_BRNO[month] * yearCycle->TEORETICAL_CAPTURED_SUNLIGHT_BRNO[degree][month];
+		double collectorEfficiency = throughput - collectorArea * ((degree - SunlightBrno::getMeanTemperate(month)) / MeanIntensityOfSunlightBrno::get(month, degree));
+		double realIncidentEnergy = SunlightBrno::getRatio(month) * TeoreticalIncidentSunlightBrno::get(month, degree);
 		double realCapturedEnergy = collectorEfficiency * realIncidentEnergy;
 		double dailyEnergyProduct = realCapturedEnergy * collectorArea;
 

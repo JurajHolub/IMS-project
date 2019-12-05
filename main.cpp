@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 
 	RandomSeed(time(NULL));
 
-	YearCycle *yearCycle = new YearCycle(1);
+	YearCycle *yearCycle = new YearCycle;
 
 	// calculate required heat for warming WATER TANK
 	double tankCapacity = argParser.tankCapacity * 10e-3;
@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 		throughput,
 		argParser.collectorArea,
 		requiredHeat,
-		(angle)argParser.roofDegree
+		(Angle)argParser.roofDegree
 	);
 	monthlyProcess->Activate();
 

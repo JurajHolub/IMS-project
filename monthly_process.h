@@ -20,17 +20,17 @@ private:
 	double throughput;
 	unsigned collectorArea;
 	double requiredHeat;
-	angle degree;
+	Angle degree;
 
 public:
 
 	MonthlyProcess(
-		YearCycle *yearCycle,
-		Statistics *stat,
-		double throughput,
-		unsigned collectorArea,
-		double requiredHeat,
-		angle degree
+			YearCycle *yearCycle,
+			Statistics *stat,
+			double throughput,
+			unsigned collectorArea,
+			double requiredHeat,
+			Angle degree
 	);
 
 	void Behavior() override ;
