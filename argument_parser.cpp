@@ -6,6 +6,7 @@
 #include <getopt.h>
 #include <iostream>
 #include <list>
+#include "year_cycle.h"
 
 bool ArgumentParser::parseArgs(int argc, char **argv)
 {
@@ -48,7 +49,7 @@ bool ArgumentParser::parseArgs(int argc, char **argv)
 				argsLeft.remove(optarg);
 				break;
 			case ROOF_DEGREE_CONST:
-				degreeDefined = parseNumber(optarg, roofDegree);
+				degreeDefined = parseNumber(optarg, roofDegree) && isValidRoofDegree(roofDegree);
 				argsLeft.remove("-degree");
 				argsLeft.remove(optarg);
 				break;
@@ -78,12 +79,29 @@ bool ArgumentParser::parseNumber(std::string input, unsigned &output)
 		}
 	}
 
-	if (atoi(input.c_str()) < 1)
+	if (atoi(input.c_str()) < 0)
 		return false;
 
 	output = atoi(input.c_str());
 
 	return true;
+}
+
+bool ArgumentParser::isValidRoofDegree(unsigned degree)
+{
+	switch (degree)
+	{
+		case _0_DEGREE:
+		case _15_DEGREE:
+		case _30_DEGREE:
+		case _45_DEGREE:
+		case _60_DEGREE:
+		case _75_DEGREE:
+		case _90_DEGREE:
+			return true;
+		default:
+			return false;
+	}
 }
 
 void ArgumentParser::printHelp()

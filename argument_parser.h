@@ -24,6 +24,7 @@ public:
 	bool parseArgs(int argc, char **argv);
 	bool parseNumber(std::string input, unsigned &output);
 	void printHelp();
+	bool isValidRoofDegree(unsigned degree);
 
 };
 

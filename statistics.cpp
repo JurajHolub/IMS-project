@@ -8,10 +8,14 @@
 #include "statistics.h"
 #include <iostream>
 
+unsigned percentageRatio(double total, double part)
+{
+	double onePercent = total / 100;
+	return (unsigned)(part / onePercent);
+}
+
 void Statistics::Output()
 {
-	//double priceWithSystem = COST_OF_SOLAR_PANEL_SET + consumedFosilEnergy * COST_OF_NATURAL_GAS_ENERGY_PER_KWH;
-	//double priceWithoutSystem = consumedEnergy * COST_OF_NATURAL_GAS_ENERGY_PER_KWH;
 	double emisionsWithSystem = consumedFosilEnergy * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS * 10e-3;
 	double emisionsWithoutSystem = consumedEnergy * GRAMMS_OF_CO2_PRODUCTION_PER_KWH_OF_NATURAL_GAS * 10e-3;
 
@@ -21,8 +25,8 @@ void Statistics::Output()
 	printf("Consumed fosil energy:             %.2f [kWh]\n", consumedFosilEnergy);
 	printf("Wasted solar energy:               %.2f [kWh]\n", energyWaste);
 	printf("Consumed total:                    %.2f [kWh]\n", consumedEnergy);
-	//printf("Price without solar system:        %.2f [CZK]\n", priceWithoutSystem);
-	//printf("Price with solar system:           %.2f [CZK]\n", priceWithSystem);
-	printf("CO2 emisions with solar system:    %.2f [kg]\n",  emisionsWithSystem);
 	printf("CO2 emisions without solar system: %.2f [kg]\n",  emisionsWithoutSystem);
+	printf("CO2 emisions with solar system:    %.2f [kg]\n",  emisionsWithSystem);
+	printf("CO2 emision decrease:              %d%c\n", 100-percentageRatio(emisionsWithoutSystem, emisionsWithSystem), '%');
+	printf("Solar energy waste:                %d%c\n", percentageRatio(consumedSolarEnergy + energyWaste, energyWaste), '%');
 }

@@ -5,11 +5,15 @@
 CC = g++
 CFLAGS = -I -g -O2 -lsimlib -lm
 OBJ = main.o \
-	  monthly_energy_flow.o \
-	  solar_energy_source.o \
 	  statistics.o \
 	  year_cycle.o \
-	  argument_parser.o
+	  argument_parser.o \
+	  daily_process.o \
+	  mean_intensity_of_sunlight_brno.o \
+	  monthly_process.o \
+	  sunlight_brno.o \
+	  teoretical_incident_sunlight_brno.o
+
 EXECUTABLE = ims-project
 
 all: $(EXECUTABLE)

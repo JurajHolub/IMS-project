@@ -5,6 +5,7 @@
  * @date November 2019
  */
 
+#include <cmath>
 #include "daily_process.h"
 
 DayilyProcess::DayilyProcess
@@ -23,7 +24,7 @@ DayilyProcess::DayilyProcess
 
 void DayilyProcess::Behavior()
 {
-	double dailyEnergyConsumption = Exponential(requiredHeat);
+	double dailyEnergyConsumption = Normal(requiredHeat, 0.1 * requiredHeat);
 
 	stat->consumedEnergy += dailyEnergyConsumption;
 	if (dailyEnergyProduct < dailyEnergyConsumption)
