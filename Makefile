@@ -30,3 +30,6 @@ pack:
 
 clean:
 	rm -rf *.o *.out $(EXECUTABLE)
+
+run:
+	./$(EXECUTABLE) -years 1 -tank 200 -area 6 -degree 30
