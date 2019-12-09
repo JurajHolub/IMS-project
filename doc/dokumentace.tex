@@ -54,17 +54,17 @@
 \newpage
 
 \section{Úvod}
-Stavebníctvo má v dnešnej dobe veľký dopad na životné prostredie. Spôsob získavania tepelnej energie pre ohrev obytných objektov pomocou alternatívnych zdrojov produkuje nezanedbateľne menšie množstvo CO$_2$ spalín. Táto práca analyzuje systém na ohrev vody pomocou solárneho panelu, ktorý ohrieva zásobník s vodou. Výsledok práce je zhodnoťenie dopadu získavania tepelnej energie zo solárnych panelov na životné prostredie oproti získavaniu tepla spaľovaním zemného plynu a vyhodnotenie efektívnosti navrhovaného systému. 
+Stavebníctvo má v dnešnej dobe veľký dopad na životné prostredie. Spôsob získavania tepelnej energie pre ohrev obytných objektov a teplej vody významne vplýva na množstvo emisií CO$_2$ vyprodukovaných prevádzkou objektu. Systém ohrevu využívajúci alternatívne zdroje vyprodukuje nezanedbateľne menšie množstvo emisií CO$_2$ v porovnaní so systémom využívajúcim výlučne spaľovanie zemného plynu . Táto práca analyzuje systém na ohrev vody pomocou solárneho panelu, ktorý ohrieva zásobník s vodou. Výsledok práce je zhodnoťenie dopadu získavania tepelnej energie zo solárnych panelov na životné prostredie oproti získavaniu tepla spaľovaním zemného plynu a vyhodnotenie efektívnosti navrhovaného systému. 
 
 \subsection{Zdroje infromácií a autori práce}
-Postupy a výpočetné vzťahy pre návrh konkrétneho solárneho systému boli použité s odbornej publikácie \cite{Cihelka} určenej projektantom solárnej techniky. Pre validáciu návrhu bola použitý konkrétny navhrhovaný projekt publikovaný v nasledujúcej práci \cite{bc_solar_system}. Referenčný návrh vytvoril vedecký pracovník Energetického ústavu Fakulty strojního inženýrství VUT v Brne Ing. Ján Tuhovčák, Ph.D. ako záverečnú prácu a úspešne ju obhájil s klasifikáciou A. Simulačný model vytvorili Juraj Holub A Matej Parobek na základe týchto informácií. 
+Postupy a výpočetné vzťahy pre návrh konkrétneho solárneho systému boli použité s odbornej publikácie \cite{Cihelka} určenej projektantom solárnej techniky. Pre validáciu návrhu bol použitý konkrétny navhrhovaný projekt publikovaný v nasledujúcej práci \cite{bc_solar_system}. Referenčný návrh vytvoril vedecký pracovník Energetického ústavu Fakulty strojního inženýrství VUT v Brne Ing. Ján Tuhovčák, Ph.D. ako záverečnú prácu a úspešne ju obhájil s klasifikáciou A. Simulačný model vytvorili Juraj Holub a Matej Parobek na základe týchto informácií. 
 
 \subsection{Validácia navrhovaného modelu}
 Výsledky našeho návrhu sú korelované s ročným vyhodnotením z hľadiska energetických nárokov objektu, ktoré poskytuje referenčný návrh. Naše výsledky pre rovnaké časové obdobie sa zhodovali s týmito podkladmi. Z tohto hľadiska bol model vyhodnotený ako validný.
 
 \section{Rozbor navrhovaného systému a použitých technológií}
 
-V rodinnom dome je v prevádzke systém na ohrev vody pomocou zemného plynu s bežným kotlom. Denná spotreba teplej vody je približne 50 l na osobu. V rodinnom dome zo 4 obyvateľmi sa spotreba tepla na ohrev vody pohybuje okolo 3 700 kWh za rok. Spotreba je rovnomerná po celý rok, nezávislo od ročného obdobia. Naopak produkcia tepelnej energie pomocou solárnych panelov je závislá na ročnom období. Pre daný solárny panel a rodinný dom miestom v Brne je produkcia tepla pre jednotlivé kalendárne mesiace závislá od nasledujúcich faktorov:
+V rodinnom dome je v prevádzke systém na ohrev vody pomocou zemného plynu s bežným kotlom. Denná spotreba teplej vody je približne 50 l na osobu. V rodinnom dome zo 4 obyvateľmi sa spotreba tepla na ohrev vody pohybuje okolo 3 700 kWh za rok. Spotreba je rovnomerná po celý rok, nezávisle na ročnom období. Naopak produkcia tepelnej energie pomocou solárnych panelov je závislá na ročnom období. Pre daný solárny panel a rodinný dom miestom v Brne je produkcia tepla pre jednotlivé kalendárne mesiace závislá na nasledujúcich faktoroch:
 \begin{itemize}
 	\item Počet dní v mesiaci.
 	\item Objem zásobníka na vodu.
@@ -75,21 +75,21 @@ V rodinnom dome je v prevádzke systém na ohrev vody pomocou zemného plynu s b
 	\item Stredná intenzita slnečného žiarenia (príloha \ref{tabulky}, obrázok \ref{str51}).
 \end{itemize}
 
-Ak solárna energia v danom mesiaci nepostačuje na pokrytie spotrebovaného tepla tak sa požadovaná energia získava sekundárnym zdrojom, ktorým je plynový kotol. Na druhej strane, prebitky solárnej energie sa v navrhovanom systéme vôbec nevyužívajú. Navrhovaný solárny systém neprodukuje žiadne spaliny CO$_2$. Naproti tomu, spaľovanie plynu produkuje 202g CO$_2$ spalín \footnote{Zdroj \href{https://www.oplyne.info/ecology/porovnanie-produkcie-znecistujucich-latok-so2-tzl-nox-co-a-sklenikoveho-plynu-co2-vyprodukovanych-spalinami-v-rodinnom-dome-vykurovanie-drevom-ciernym-hnedym-uhlim-a-zemnym-plynom/}{https://www.oplyne.info/ecology/porovnanie-produkcie-znecistujucich-latok...}}  na 1 kWh vyprodukovaného tepla. Podľa referenčnej práce sú emisie spojené s vybudovaním solárneho systému porovnateľné s emisiami na vybudovanie pôvodného systému. S tohto dôvodu emisie spojené s vybudovaním systému táto práca neuvažuje. 
+Ak solárna energia v danom mesiaci nepostačuje na pokrytie spotrebovaného tepla tak sa požadovaná energia získava zo sekundárneho zdroja, ktorým je plynový kotol. Na druhej strane, prebytky solárnej energie sa v navrhovanom systéme vôbec nevyužívajú. Navrhovaný solárny systém neprodukuje žiadne emisie CO$_2$. Naproti tomu, spaľovanie plynu produkuje 202g CO$_2$ emisií \footnote{Zdroj \href{https://www.oplyne.info/ecology/porovnanie-produkcie-znecistujucich-latok-so2-tzl-nox-co-a-sklenikoveho-plynu-co2-vyprodukovanych-spalinami-v-rodinnom-dome-vykurovanie-drevom-ciernym-hnedym-uhlim-a-zemnym-plynom/}{https://www.oplyne.info/ecology/porovnanie-produkcie-znecistujucich-latok...}}  na 1 kWh vyprodukovaného tepla. Podľa referenčnej práce sú emisie spojené s vybudovaním solárneho systému porovnateľné s emisiami na vybudovanie pôvodného systému. S tohto dôvodu emisie spojené s vybudovaním systému táto práca neuvažuje. 
 
 \subsection{Postup požitý pre vytvorenie modelu}
 
-Zo získaných vstupných informácií bol vytvorený abstraktný model (IMS\cite{ims_slides} slide 9.). Pre popis časového priebehu bol použitý abstraktný model vo forme Petriho siete (IMS\cite{ims_slides} slide 123.). Pre popis produkcie a spotreby tepelnej energie bol vytvorený abstraktný model vo forme algebraických rovníc. K výslednému abstraktnému modelu bol vytvorený ekvivalentný simulačný model (IMS\cite{ims_slides} slide 44.) v programovacom jazyku C++ za použitia knihovny \textbf{SIMLIB}\footnote{Project SIMLIB: \href{http://www.fit.vutbr.cz/~peringer/SIMLIB/.cs}{http://www.fit.vutbr.cz/~peringer/SIMLIB/.cs}} . Knihovna bola zvolená s ohľadom na zložitoť modelu. Použitie robustnejšej knihovny by vzhľadom na náročnosť abstraktného modelu bolo neprimerané. Táto knihovna poskytuje základné prostriedky pre diskrétne modelovanie (IMS\cite{ims_slides} slide 44.) ako sú procesy (IMS\cite{ims_slides} slide 121.) alebo obslužné linky (IMS\cite{ims_slides} slide 138.) a to pomocou prostriedkov Objektovo Orientovaného Programovania (OOP).
+Zo získaných vstupných informácií bol vytvorený abstraktný model (IMS\cite{ims_slides} slide 9.). Pre popis časového priebehu bol použitý abstraktný model vo forme Petriho siete (IMS\cite{ims_slides} slide 123.). Pre popis produkcie a spotreby tepelnej energie bol vytvorený abstraktný model vo forme algebraických rovníc. K výslednému abstraktnému modelu bol vytvorený ekvivalentný simulačný model (IMS\cite{ims_slides} slide 44.) v programovacom jazyku C++ za použitia knihovny \textbf{SIMLIB}\footnote{Project SIMLIB: \href{http://www.fit.vutbr.cz/~peringer/SIMLIB/.cs}{http://www.fit.vutbr.cz/~peringer/SIMLIB/.cs}} . Knihovna bola zvolená s ohľadom na zložitosť modelu. Použitie robustnejšej knihovny by vzhľadom na náročnosť abstraktného modelu bolo neprimerané. Táto knihovna poskytuje základné prostriedky pre diskrétne modelovanie (IMS\cite{ims_slides} slide 44.) ako sú procesy (IMS\cite{ims_slides} slide 121.) alebo obslužné linky (IMS\cite{ims_slides} slide 138.) a to pomocou prostriedkov Objektovo Orientovaného Programovania (OOP).
 
 \subsection{Povod použitých technológií}
-Na vytvorenie Petriho sieťe boli využité postupy preberané na predmete IMS\cite{ims_slides} v kapitole \textit{Diskrétní simulace}. Použité algebraické vzťahy boli prevzaté s nasledujúcej knihy\cite{Cihelka}. Simulačný model bol implementovaný v jazyku C++ za použitia OOP abstrakcie a funkcionality zo štandardnej knihovny pre štandard z roku 2014. Program je prekladaný pomocou GNU C++ prekladača \texttt{g++} \footnote{GNU project \href{https://gcc.gnu.org/}{https://gcc.gnu.org/}} . Knihovnu SIMLIB  je využívaná pod licenciou GNU LGLP \footnote{GNU Lesser General Public License \href{https://www.gnu.org/licenses/lgpl-3.0.html}{https://www.gnu.org/licenses/lgpl-3.0.html}} . 
+Na vytvorenie Petriho sieťe boli využité postupy preberané na predmete IMS\cite{ims_slides} v kapitole \textit{Diskrétní simulace}. Použité algebraické vzťahy boli prevzaté z nasledujúcej knihy\cite{Cihelka}. Simulačný model bol implementovaný v jazyku C++ za použitia OOP abstrakcie a funkcionality zo štandardnej knihovny pre štandard z roku 2014. Program je prekladaný pomocou GNU C++ prekladača \texttt{g++} \footnote{GNU project \href{https://gcc.gnu.org/}{https://gcc.gnu.org/}} . Knihovna SIMLIB je využívaná pod licenciou GNU LGPL \footnote{GNU Lesser General Public License \href{https://www.gnu.org/licenses/lgpl-3.0.html}{https://www.gnu.org/licenses/lgpl-3.0.html}} . 
 
 \section{Konceptuálny model}
-Na základe rozboru navrhovaného systému bol vytvorený konceptuálny model (IMS\cite{ims_slides} slide 48.) popísaný v tejto kapitole.  Najmenšia časová jednotka v modeli je jeden deň. Takáto jednotka bola zvolená preto, že vyprodukované teplo a zároveň jeho spotreba v systéme je počítaná na základe tabuľkových hodnôt vždy pre časové obdobie jeden deň. Pre zmysluplné zhodnotenie výstupov musí model simulovať čas minimálne v rádoch rokov. V opačnom prípade by samotná výstavba alternatívneho zdroja energie vyprodukovala väčšiu záťaž na životné prostredie ako úspora získaná jeho používaním. 
+Na základe rozboru navrhovaného systému bol vytvorený konceptuálny model (IMS\cite{ims_slides} slide 48.) popísaný v tejto kapitole.  Najmenšia časová jednotka v modeli je jeden deň. Takáto jednotka bola zvolená preto, že vyprodukované teplo a zároveň jeho spotreba v systéme je počítaná na základe tabuľkových hodnôt vždy pre časové obdobie jeden deň. Pre zmysluplné zhodnotenie výstupov musí model simulovať čas minimálne v rádoch rokov. V opačnom prípade by samotná výstavba alternatívneho zdroja energie predstavovala väčšiu záťaž životného prostredia ako úspora získaná jeho používaním. 
 
 
 \subsection{Schéma navrhovaného systému} \label{petri_net_section}
-Časť konceptuálneho modelu, ktorá reprezentuje časový priebeh modelu pomocou Petriho siete je priložená na obrázku \ref{obr_petri_net}. Stav (IMS\cite{ims_slides} slide 123.) \textit{Nový mesiac} má na začiatku jedenu značku. Táto značka okamžite prechádza do prechodu \textit{mesačné výpočty}, kde prebiehajú algebraické výpočty relevantné pre aktuálny mesiac, ktoré sú popísané ďalej v tejto sekcii. Značka sa presne za mesiac vracia do stavu \textit{nový mesiac} a výpočet prebieha pre ďalší kalendárny mesiac. Prechod z \textit{mesačné výpočty} taktiež vygeneruje množstvo značiek rovné počtu dní aktuálneho mesiaca. Tieto značky postupne (t.j. každý deň v mesiaci) vykonajú prechod \textit{denné výpočty}. V tomto prechode prebiehajú algebraické výpočty relevantné pre aktuálny kalendárny deň.
+Časť konceptuálneho modelu, ktorá reprezentuje časový priebeh modelu pomocou Petriho siete je priložená na obrázku \ref{obr_petri_net}. Stav (IMS\cite{ims_slides} slide 123.)  \textit{Nový mesiac} má na začiatku jedenu značku. Táto značka okamžite prechádza do prechodu \textit{mesačné výpočty}, kde prebiehajú algebraické výpočty relevantné pre aktuálny mesiac popísané ďalej v tejto sekcii. Značka sa presne za mesiac vracia do stavu \textit{nový mesiac} a výpočet prebieha pre ďalší kalendárny mesiac. Prechod z \textit{mesačné výpočty} taktiež vygeneruje množstvo značiek rovné počtu dní aktuálneho mesiaca. Tieto značky postupne (t.j. každý deň v mesiaci) vykonajú prechod \textit{denné výpočty}. V tomto prechode prebiehajú algebraické výpočty relevantné pre aktuálny deň mesiaca.
 
 \begin{figure}[H] 
 	\centering
@@ -97,11 +97,11 @@ Na základe rozboru navrhovaného systému bol vytvorený konceptuálny model (I
 	\caption{Časť konceptuálneho modelu vo forme Petriho siete, reprezentujúca časový priebeh modelu.}
 \end{figure} \label{obr_petri_net}
 
-V prechode \textit{mesačné výpočty} prebiehajú výpočty pre ktoré sú dostupné tabuľkové hodnoty relevantné vždy pre obdobie jedného mesiaca. Pre výpočet účinnosti kolektoru  $Q_{den\ ucinnost}$v danom mesiaci sa použije vzťah \ref{eq:den_ucinnost}. Priepustnosť slnečného žiarenia $\alpha=0.85$ až $0.95$ (\cite{bc_solar_system}, str. 21). Plocha solárneho panelu $S_{panel}$ je v $m^2$, sklon strechy (t.j panelu) $t_{sklon}$ je v stupňoch, stredná teplota v dobe slnečného svitu $t_{str}$ (príloha \ref{tabulky}, obr. \ref{str50}) je v $^{\circ}$C a stredná intenzita slnečného žiarenia $I_{str}$ (príloha \ref{tabulky}, obr. \ref{str51}) je jednotkách $Wm^{-2}$.
+V prechode \textit{mesačné výpočty} prebiehajú výpočty pre ktoré sú dostupné tabuľkové hodnoty relevantné vždy pre obdobie jedného mesiaca. Pre výpočet účinnosti kolektoru  $Q_{den\ ucinnost}$ v danom mesiaci sa použije vzťah \ref{eq:den_ucinnost} a priepustnosť slnečného žiarenia $\alpha=0.85$ až $0.95$ (\cite{bc_solar_system}, str. 21). Plocha solárneho panelu $S_{panel}$  je v $m^2$, sklon strechy (t.j panelu) $t_{sklon}$ je v stupňoch, stredná teplota v dobe slnečného svitu $t_{str}$ (príloha \ref{tabulky}, obr. \ref{str50}) je v $^{\circ}$C a stredná intenzita slnečného žiarenia $I_{str}$ (príloha \ref{tabulky}, obr. \ref{str51}) je jednotkách $Wm^{-2}$.
 \begin{equation}\label{eq:den_ucinnost}
 Q_{den\ ucinnost} = \alpha - S_{panel} . \frac{t_{sklon} - t_{str}}{I_{str}}
 \end{equation}
-Následne sa vypočíta skutočná dopadajúca energia na panel vzťahom \ref{eq:skut_dopad}. Pomerná doba slnečného svitu $\tau_s$ je koeficient platný pre mesto Brno. Teoreticky možná energia dopadajúca za deň na plochu $Q_{den\ teor}$ (príloha \ref{tabulky}, obr. \ref{str34}) je tabuľová hodnota v jednotkách $kWhm^{-2}$.
+Následne sa vypočíta skutočná dopadajúca energia na panel vzťahom \ref{eq:skut_dopad}. Pomerná doba slnečného svitu $\tau_s$ je koeficient platný pre mesto Brno. Teoreticky možná energia dopadajúca za deň na plochu $Q_{den\ teor}$ (príloha \ref{tabulky}, obr. \ref{str34}) je tabuľková hodnota v jednotkách $kWhm^{-2}$.
 \begin{equation}\label{eq:skut_dopad}
 Q_{skut\ dopad} = \tau_s . Q_{den\ teor}
 \end{equation}
@@ -110,11 +110,11 @@ Z dopadajúcej energie sa vypočita reálna energia zachytená solárnym kolekto
 Q_{skut\ zachyt} = Q_{skut\ dopad} . Q_{den\ ucinnost} . S_{panel}
 \end{equation}
 
-Následne sa v prechode \textit{denné výpočty} získa množstvo požadované tepla pre aktuálny deň pomocou vzťahu \ref{eq:spotreba}. Merná tepelná kapacita vody $c_{H_2O}=4180$ je v jednotkách $Jkg^{-1}K^{-1}$. Uvažovaná hustota vody je $\rho_{H_2O} = 995.6kgm^{-3}$ (pri strednej teplote $30^{\circ}C$). Objem zásobníka $V_z$ je v jednotkách litrov. Výstupná teplota vody je $t_2 = 50^{\circ}C$ a vstupná teplota vody je $t_1 = 10^{\circ}C$. Výsledná spotreba v $kWh$ je vynásobená koeficiento $\beta = 1.1$, ktorý uvažuje $10\%$ straty.
+Následne sa v prechode \textit{denné výpočty} získa množstvo požadovaného tepla pre aktuálny deň pomocou vzťahu \ref{eq:spotreba}. Uvažujeme mernú tepelnú kapacitu vody $c_{H_2O}=4180 Jkg^{-1}K^{-1}$ a hustotu vody $\rho_{H_2O} = 995.6kgm^{-3}$ (pri strednej teplote $30^{\circ}C$). Objem zásobníka $V_z$ je v jednotkách litrov. Výstupná teplota vody je $t_2 = 50^{\circ}C$ a vstupná teplota vody je $t_1 = 10^{\circ}C$. Výsledná spotreba v $kWh$ je vynásobená koeficiento $\beta = 1.1$, ktorý uvažuje $10\%$ straty.
 \begin{equation}\label{eq:spotreba}
 Q_{spotreba} = c_{H_2O} . \rho_{H_2O} . V_z . (t_2 - t_1) . \beta
 \end{equation}
-Vypočítaná spotreba na deň sa môže pre každý deň mierne líšiť lebo ľudia nespotrebovávajú teplú vodu deterministicky presne. Avšak z dlhodobého hľadiska bude spotreba vody veľmi podobná. Na základe pozorovania spotreby vody v mojej domácnosti, bolo vypozorované že denná spotreba vody sa líši v približnom rozmdzí 10\%. Na základe tohto sa na výpočet skutočnej spotreby použilo normálne rozloženie (IMS\cite{ims_slides} slide 93.) zo strednout hodnotou $\sigma=Q_{spotreba}$ a rozptylom $\mu=0.1*Q_{spotreba}$.
+Vypočítaná spotreba na deň sa môže pre každý deň mierne líšiť, pretože ľudia nespotrebovávajú teplú vodu deterministicky presne. Avšak z dlhodobého hľadiska bude spotreba vody veľmi podobná. Na základe pozorovania spotreby vody v mojej domácnosti som zistil, že denná spotreba vody sa líši v približnom rozmdzí 10\%. Na základe tohoto sa na výpočet skutočnej spotreby použilo normálne rozloženie (IMS\cite{ims_slides} slide 93.) zo strednou hodnotou $\sigma=Q_{spotreba}$ a rozptylom $\mu=0.1*Q_{spotreba}$.
 
 Na záver sa pre aktuálny deň vyhodnotí bilancia vyprodukovanej energie $Q_{skut\ zachyt}$ a požadovanej energie $Q_{spotreba}$ . Spôsob vyhodnotenia je zachytený v algoritme \ref{al:daily_calc}. Výsledkom dennej produkcie tepla môže byť nedostatok solárnej energie (nutnosť použiť plynový kotol) alebo dostatok energie (prípadne jej prebytok).
 
@@ -141,20 +141,20 @@ Na záver sa pre aktuálny deň vyhodnotí bilancia vyprodukovanej energie $Q_{s
 
 \section{Architektúra programu}
 
-Priebeh simulácie je veľmi závislý od simulačného času a to špecificky od mesiaca, ktorý je aktuálne simulovaný. Architektúra programu preto implementuje špeciálnu datovú štruktúru ktorá uchováva informácie o aktuálnom mesiaci v simulačnom čase. Na základe časovej aktuálnej časovej značky sa vyberajú tabuľkové hodnoty popísané v predošlej kapitole.
+Priebeh simulácie je veľmi závislý od simulačného času a to špecificky od mesiaca, ktorý je aktuálne simulovaný. Architektúra programu preto implementuje špeciálnu datovú štruktúru, ktorá uchováva informácie o aktuálnom mesiaci v simulačnom čase. Na základe aktuálnej časovej značky sa vyberajú tabuľkové hodnoty popísané v predošlej kapitole.
 
 \subsection{Ročný cyklus}
-Ako popisuje sekcia \ref{petri_net_section}, miesto \textit{Nový mesiac} je obsadené 1 procesom vždy na začiatku nového kalendárneho mesiaca. Toto chovanie zabezpečuje proces, ktorý sa vždy uspí na mesiac. Avšak jednotlivé mesiace v roku sa líšia počtom dní. Preto je v rámci celého programu dostupná datová štruktúra, ktorá uchováva aktuálne prebiehajúci mesiac roku, pričom na začiatku je iniciovaná prvým mesiacom každého kalendárneho roku. Pri vstupe do miesta \textit{Nový mesiac}, tento proces vždy nastavený ďalší kalendárny mesiac v roku. Toto chovanie sa cyklicky opakuje po uplinutí roku. Táto štruktúra obsahuje pre každý mesiac príslušný počet dní. .
+Ako popisuje sekcia \ref{petri_net_section}, miesto \textit{Nový mesiac} je obsadené 1 procesom vždy na začiatku nového kalendárneho mesiaca. Toto chovanie zabezpečuje proces, ktorý sa vždy uspí na mesiac. Avšak jednotlivé mesiace v roku sa líšia počtom dní. Preto je v rámci celého programu dostupná datová štruktúra, ktorá uchováva aktuálne prebiehajúci mesiac roku, pričom na začiatku je iniciovaná prvým mesiacom každého kalendárneho roku. Pri vstupe do miesta \textit{Nový mesiac}, tento proces vždy nastaví ďalší kalendárny mesiac v roku. Toto chovanie sa cyklicky opakuje po uplynutí roku. Táto štruktúra obsahuje pre každý mesiac príslušný počet dní. .
 
 \subsection{Riadiace procesy}\label{solar_energy_proces}
-Riadenie programu je cyklicky predávané na začiatku mesiaca procesu, ktorý po vypočítaní aktuálnych hodnôt predá riadenia postupne každý deň jednému procesu. Proces mesiaca sa teda vždy uspí na počet dní príslušný aktuálnemu mesiacu a zároveň vygeneruje príslušné množstvo procesov na denné výpočty.
+Riadenie programu je cyklicky predávané na začiatku mesiaca procesu, ktorý po vypočítaní aktuálnych hodnôt predá riadenie postupne každý deň jednému procesu. Proces mesiaca sa teda vždy uspí na počet dní príslušný aktuálnemu mesiacu a zároveň vygeneruje príslušné množstvo procesov na denné výpočty.
 
 \subsection{Tabuľkové hodnoty}
-Pre výpočet algebraických rovníc popísaných vpredošlej kapitole sa využívajú tabuľkové hodnoty, ktoré sú implementované v nasledujúcich statických triedach:
+Pre výpočet algebraických rovníc popísaných v predošlej kapitole sa využívajú tabuľkové hodnoty, ktoré sú implementované v nasledujúcich statických triedach:
 \begin{itemize}
-	\item \textbf{MeanIntensityOfSunlightBrno}: Trieda obsahuje koštanty reprezentujúce strednú intenzitu slnečného žiarenia v jednotlivých mesiacoch pre Brno. Voľba hodnoty závisí od mesiaca a sklonu strechy. Pre prístup, k tímto hodnotám sa využíva jednoduché rozhranie \textit{get(mesiac, uhol)}, ktoré mapuje \textit{mesiac} a \textit{uhol} na príslušnú hodnotu.
-	\item \textbf{TeoreticalIncidentSunlightBrno}: Trieda reprezentuje tabuľkové hodnoty teoretickej možnej energie dopadajúcej za deň na plochu $1m^{2}$ v jednotlivých mesiacoch pre Brno. Voľba hodnoty opäť závisí od mesiaca a sklonu strechy, preto je rozranie rovnaké ako bolo popísané v predošlom bode.
-	\item \textbf{SunlightBrno}: Trieda obsahuje tabuľky pre pomernú doba slnečného svitu a taktiež pre strednú teplotu v dobe slnečného svitu v jednotlivých mesiacoch v Brne. Tieto hodnoty sú závislé len od mesiaca, preto je rozhranie tvorené metódov \textit{getMeanTemperature(mesiac)} a \textit{getRatio(mesiac)}.
+	\item \textbf{MeanIntensityOfSunlightBrno}: Trieda obsahuje konštanty reprezentujúce strednú intenzitu slnečného žiarenia v jednotlivých mesiacoch pre Brno. Voľba hodnoty závisí od mesiaca a sklonu strechy. Pre prístup, k týmto hodnotám sa využíva jednoduché rozhranie \textit{get(mesiac, uhol)}, ktoré mapuje \textit{mesiac} a \textit{uhol} na príslušnú hodnotu.
+	\item \textbf{TeoreticalIncidentSunlightBrno}: Trieda reprezentuje tabuľkové hodnoty teoretickej možnej energie do\-pa\-da\-jú\-cej za deň na plochu $1m^{2}$ v jednotlivých mesiacoch pre Brno. Voľba hodnoty opäť závisí od mesiaca a sklonu strechy, preto je rozranie rovnaké ako bolo popísané v predošlom bode.
+	\item \textbf{SunlightBrno}: Trieda obsahuje tabuľky pre pomernú doba slnečného svitu a taktiež pre strednú teplotu v dobe slnečného svitu v jednotlivých mesiacoch v Brne. Tieto hodnoty sú závislé len od mesiaca, preto je rozhranie tvorené metódou \textit{getMeanTemperature(mesiac)} a \textit{getRatio(mesiac)}.
 \end{itemize}
 
 \subsection{Používanie programu}
@@ -170,18 +170,18 @@ Program sa dá preložiť spustením priloženého \texttt{Makefile} a následne
 \texttt{./ims-project -years 1 -tank 200 -area 6 -degree 30} \\
 Výstupom programu sú nasledujúce informácie:
 \begin{itemize}
-	\item Celková spotrebovaná solárna energia v $kWh$ za odsimulované časové obdobie.
-	\item Celková spotrebovaná fosilná energia v $kWh$ za odsimulované časové obdobie.
-	\item Vyprodukovaná prebytočná (nevyužitá) solárna energia v $kWh$ za odsimulované časové obdobie.
-	\item Celkovo spotrebovaná energia v $kWh$ za odsimulované časové obdobie.
-	\item Vyprodukované emisie $CO_2$ v $kg$, zo solárnym systémom.
-	\item Vyprodukované emisie $CO_2$ v $kg$, bez solárneho systému.
+	\item Celková spotrebovaná solárna energia v $kWh$ za simulované časové obdobie.
+	\item Celková spotrebovaná fosilná energia v $kWh$ za simulované časové obdobie.
+	\item Vyprodukovaná prebytočná (nevyužitá) solárna energia v $kWh$ za simulované časové obdobie.
+	\item Celkovo spotrebovaná energia v $kWh$ za simulované časové obdobie.
+	\item Vyprodukované emisie $CO_2$ v $kg$ so solárnym systémom.
+	\item Vyprodukované emisie $CO_2$ v $kg$ bez solárneho systému.
 \end{itemize}
 
 \section{Simulačné experimenty}
-V tejto sekcii sa na základe výsledkov simulačných experimentov zhodnotí dopad produkcie tepelnej energie zo solárnych panel na životné prostredie v porovnaní s energiou získanou spaľovaním zemného plynu. Na vytvorený model sa aplikovalo niekoľko experimentov s cieľom zistiť efektívnosť systému pre rôzne vstupné parametre.
+V tejto sekcii sa na základe výsledkov simulačných experimentov zhodnotí dopad produkcie tepelnej energie na životné prostredie zo solárnych panelov v porovnaní so spaľovaním zemného plynu. Na vytvorený model sa aplikovalo niekoľko experimentov s cieľom zistiť efektívnosť systému pre rôzne vstupné parametre.
 
-\subsection{Experiment 1}
+\subsection{Experiment 1} \label{experiment_1}
 Pre overenie validity naimplementovaného modelu bol odsimulovaný experiment s rovnakými vstupnými parametrami ako systém navrhovaný v referenčnej práci\cite{bc_solar_system}:
 
 \begin{table}[H]
@@ -208,15 +208,15 @@ Energetická bilancia referenčného návrhu\cite{bc_solar_system} a výsledky s
 		Fosilná energia {[}kWh{]} & 1156.75 & 1165.376 \\ \hline
 		Nevyužitá solárna energia {[}\%{]} & 42 & - \\ \hline
 		CO$_2$ emiie bez solárneho systému {[}kg/rok{]} & 7444.38 & - \\ \hline
-		CO$_2$ emisie zo solárnym systémom {[}kg/rok{]} & 2138.00 & - \\ \hline
+		CO$_2$ emisie so solárnym systémom {[}kg/rok{]} & 2138.00 & - \\ \hline
 		Pokles CO2 emisií{[}\%{]} & 70 & - \\ \hline
 	\end{tabular}
 	\caption{Porovnanie referenčných výsledkov s výsledkami získanými zo simulácie pre rovnaké vstupné parametre.}
 	\label{tab:exp1_output}
 \end{table}
 
-\subsection{Experiment 2}
-V tomto experimente sa uvažoval sklon strechy vždy $30^{\circ}$. Simulovalo sa po obdobie 1 rok a zmyslom experimentu bolo nájsť najvhodnejší pomer plochy kolektorov a objemu zásobníka vzhľadom na pokles vyprodukovaných emisií. Taktiež sa vyhodnocovala predimenzovanoť panelu v zmysle produkcie energie, ktorá sa ďalej nevyužíva. Výsledky experimentu su zobrazené v tabuľke \ref{tab:exp2}. Z výsledkov vyplíva, že zásobník o objeme 150$l$ s panelom o ploche 6$m^2$ znižuje produkciu emisií približne o 75\% ale zároveň až 52\% vyprodukovanej solárnej energie sa nevyužije. Na druhej strane zásobník o objeme 250$l$ s panelom o ploche 3$m^2$ znižuje produkciu emisií približne o 50\% a zároveň len 2\% vyprodukovanej solárnej energie sa nevyužije.
+\subsection{Experiment 2} \label{experiment_2}
+V tomto experimente sa uvažoval sklon strechy vždy $30^{\circ}$. Simulovalo sa po obdobie 1 rok a zmyslom experimentu bolo nájsť najvhodnejší pomer plochy kolektorov a objemu zásobníka vzhľadom na pokles vyprodukovaných emisií. Taktiež sa vyhodnocovala predimenzovanoť panelu v zmysle produkcie energie, ktorá sa ďalej nevyužíva. Výsledky experimentu su zobrazené v tabuľke \ref{tab:exp2}. Z výsledkov vyplýva, že zásobník o objeme 150$l$ s panelom o ploche 6$m^2$ znižuje produkciu emisií približne o 75\% ale zároveň až 52\% vyprodukovanej solárnej energie sa nevyužije. Na druhej strane zásobník o objeme 250$l$ s panelom o ploche 3$m^2$ znižuje produkciu emisií približne o 50\% a zároveň len 2\% vyprodukovanej solárnej energie sa nevyužije.
 
 \begin{table}[H]
 	\centering
@@ -236,8 +236,8 @@ V tomto experimente sa uvažoval sklon strechy vždy $30^{\circ}$. Simulovalo sa
 	\label{tab:exp2}
 \end{table}
 
-\subsection{Experiment 3}
-Experimentovalo sa so sklonom strechy pre panel o ploche 3$m^2$ a zásobník o objmeme 250$l$ po časové obdobie 1 rok. Výsledky experimentu sa nachádzajú v tabuľke \ref{tab:exp3}. Z výsledkov vyplíva, že pre sklon strechy 0$^{\circ}$ až 45$^{\circ}$ je výsledná produkcia emisií takmer totožná. Na druhej strane, pre strehu zo sklonom 60$^{\circ}$ a viac je úspora emisií značne menšia a pri sklone 90$^{\circ}$ je pokles emisií len 14$^{\circ}$.
+\subsection{Experiment 3} \label{experiment_3}
+Experimentovalo sa so sklonom strechy pre panel o ploche 3$m^2$ a zásobník o objmeme 250$l$ po časové obdobie 1 rok. Výsledky experimentu sa nachádzajú v tabuľke \ref{tab:exp3}. Z výsledkov vyplýva, že pre sklon strechy 0$^{\circ}$ až 45$^{\circ}$ je výsledná produkcia emisií takmer totožná. Na druhej strane, pre strechu so sklonom 60$^{\circ}$ a viac je úspora emisií značne menšia a pri sklone 90$^{\circ}$ je pokles emisií len 14$\%$.
 \begin{table}[H]
 	\centering
 	\resizebox{\textwidth}{!}{%
@@ -260,18 +260,28 @@ Experimentovalo sa so sklonom strechy pre panel o ploche 3$m^2$ a zásobník o o
 \subsection{Záver experimentov}
 Prebehli tri typy experimentov. Prvý experiment slúžil na overenie validity simulačného modelu. Výsledok modelu potvrdil validitu modelu, ale taktiež oproti referenčnému návrhu solárneho systému poskytol informácie o produkcii emisií a prebytočnej tvorbe solárnej energie. 
 
-V druhom experimente sa vyskúšalo 6 rôznych kombinácií objemu zásobníku a plochy kolektorov s cieľom nájsť optimálne riešenie. Za optimálne riešenie bol zvolený návrh zo zásobníkom o objeme 250$l$ a zo solárnym panelom o ploche 6$m^2$. Takáto zostava neprodukuje takmer žiadnu prebytočnú solárnu energiu. Vyprodukovaná energia je efektívne využívaná. CO$_2$ emisie v tomto prípade poklesnú o polovicu.
+V druhom experimente sa vyskúšalo 6 rôznych kombinácií objemu zásobníku a plochy kolektorov s cieľom nájsť optimálne riešenie. Za optimálne riešenie bol zvolený návrh so zásobníkom o objeme 250$l$ a zo solárnym panelom o ploche 6$m^2$. Takáto zostava neprodukuje takmer žiadnu prebytočnú solárnu energiu. Vyprodukovaná energia je efektívne využívaná. CO$_2$ emisie v tomto prípade poklesnú o polovicu.
 
 V treťom experimente sa vyskúšalo 7 rôznych sklonov strechy na ktorej bude panel umiestnený. Okrem sklonu sa počítalo s parametrami, ktoré sme zvolili v predošlom experimente za optimálne. Výsledok experimentu je fakt, že panel umiestnený na streche v sklone 0$^{\circ}$ až 45$^{\circ}$ produkuje veľmi podobné solárne zisky. Väčší sklon vedie k značnému poklesu výkonnosti solárneho systému. Záverom experimentu je doporučenie navrhovať sklon panelu v rozmedzí do 45$^{\circ}$. Na voľbe presného sklonu v tomto rozmedzí takmer nezáleží lebo efektívnosť solárneho systému pre takto zvolený uhol je takmer zhodná.
 
 \section{Záver}
-{\color{red}Závěrem dokumentace se rozumí zhodnocení simulační studie a zhodnocení experimentů (např. Z výsledků experimentů vyplývá, že ... při předpokladu, že ... Validita modelu byla ověřena ... V rámci projektu vznikl nástroj ..., který vychází z ... a byl implementován v ...).
-\begin{itemize}
-	\item do závěru se nehodí psát poznámky osobního charakteru (např. práce na projektu mě bavila/nebavila, ...). Technická zpráva není osobní příběh autora.
-	\item absolutně nikoho nezajímá, kolik úsilí jste projektu věnovali, důležitá je pouze kvalita zpracování simulátoru/modelu a obsažnost simulační studie (rozhodně ne např.: projekt jsem dělal ... hodin, což je víc než zadání předpokládalo. Program má ... řádků kódu). Pokud zdůrazňujete, že jste práci dělali významně déle než se čekalo, pak tím pouze demonstrujete vlastní neschopnost (to platí zejména v profesním životě).
-	\item do závěru se velmi nehodí psát "auto-zhodnocení" kvality práce, to je výhradně na recenzentovi/hodnotiteli (např. v projektu jsem zcela splnil zadání a domnívám se, že můj model je bezchybný a výsledky taktéž). Statisticky častý je pravý opak autorova auto-zhodnocení. Pokud přesto chcete vyzdvihnout kvalitu svého díla (což je dobře), tak vaše výroky musí být naprosto nepopiratelně zdůvodněny a prokázány (např. pomocí jiného referenčního přístupu, matematického důkazu, analýzy, ...).
-\end{itemize}
-}
+Výsledkom projektu je simulačný nástroj, ktorý zodpovedá kombinovanému vykurovaciemu systému so solárnymi panelmi a plynovým kotlom. Validita modelu a teda nástoroja bola dokázaná na základe experimentov v sekcii \ref{experiment_1}.
+
+Simulačný nástroj je prínosný pre výpočet potreby tepla na ohrievanie vody a v súvislosti s vplyvmi na životné prostredie na návrh parametrov efektívneho solárneho systému a návrh systému eliminujúceho emisie. Eliminácia emisií je kľučový cieľ vo všetkých oblastiach nášho života s ohľadom na našu budúcnosť a budúcnosť ľudstva. 
+
+Zároveň je nástroj dostatočne jednoduchý a dostupný na využitie záujemcami o solárny sytém.
+
+V rámci experimentov sme sa zamerali na rôzne parametre prínosné pri návrhu a prevádzkovaní systému so solárnymi panelmi. 
+
+Môžeme uvážiť rôzne veľkosti plochy solárnych panelov a zásobníkov s ohľadom na maximálne využitie produkcie panelov alebo elimináciu emisií na základe sekcie \ref{experiment_2}. Vzhľadom na veľkosť našej strechy, dostupné finančné prostriedky a ekologické cítenie môžeme uvažovať o rôznych variantach systému predstavené v sekcii \ref{experiment_2}.
+
+Pri umiestnení panelov môžeme vychádzať z experimentov v sekcii \ref{experiment_3} a podniknúť prípadné úpravy pre vhodné umiestnenie panelov, aby použitie tohoto systému malo zmysel z ekonomického hľadiska.
+
+Projekt ako celkom ukázal,že využitie solárnych panelov znamená podstatné zníženie CO$_2$ a že je možné navrhnúť systém, ktorý je efektívny z hľadiska zníženia vplyvov na životné prostredie aj z ekonomického hľadiska.
+Z ekonomického hľadiska predstavujú totiž uštrené emisie ušetrené množstvo plynu, ktorý je potrebné platiť.
+
+V rámci projektu vznikl nástroj ..., který vychází z ... a byl implementován v ...
+
 
 \newpage
 \bibliographystyle{czechiso}
@@ -286,28 +296,28 @@ Tabuľkové hodnoty boli získané z knihy pre projektantov solárnych systémov
 
 \begin{figure}[H] 
 \centering
-\includegraphics[width=.6\paperwidth]{images/str34.png}
+\includegraphics[width=.6\paperwidth]{images/str34.jpg}
 \caption{Teoreticky možná energia dopadajúca za deň na plochu v jednotlivých mesiacoch.}
 \label{str34}
 \end{figure}
 
 \begin{figure}[H] 
 \centering
-\includegraphics[width=.6\paperwidth]{images/str41.png}
+\includegraphics[width=.6\paperwidth]{images/str41.jpg}
 \caption{Pomerná doba slnečného svitu.}
 \label{str41}
 \end{figure}
 
 \begin{figure}[H] 
 \centering
-\includegraphics[width=.7\paperwidth]{images/str50.png}
+\includegraphics[width=.7\paperwidth]{images/str50.jpg}
 \caption{Stredná teplota v dobe slnečného svitu v jednotlivých mesiacoch.}
 \label{str50}
 \end{figure}
 
 \begin{figure}[H] 
 \centering
-\includegraphics[width=.7\paperwidth]{images/str51.png}
+\includegraphics[width=.7\paperwidth]{images/str51.jpg}
 \caption{Stredná intenzita slnečného žiarenia v jednotlivých mesiacoch.}
 \label{str51}
 \end{figure}
